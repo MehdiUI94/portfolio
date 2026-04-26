@@ -6,10 +6,10 @@
         "fr": "MSc AI Applied to Business — Eugenia School",
         "en": "MSc AI Applied to Business — Eugenia School"
       },
-      "location": "Paris 10e",
+      "location": "eugeniaschool.com",
       "status": { "fr": "en cours", "en": "in progress" },
       "period": "2025–2027",
-      "url": "https://eugenia-school.com"
+      "url": "https://www.eugeniaschool.com"
     },
     {
       "icon": "I",
@@ -17,10 +17,10 @@
         "fr": "Mastère UX Design — ICAN Paris",
         "en": "UX Design Master's — ICAN Paris"
       },
-      "location": "ican-paris.com",
+      "location": "ican-design.fr",
       "status": null,
       "period": "2020–2022",
-      "url": "https://ican-paris.com"
+      "url": "https://ican-design.fr"
     },
     {
       "icon": "I",
@@ -28,10 +28,10 @@
         "fr": "Bachelor Webdesign & Communication — ICAN",
         "en": "Bachelor Webdesign & Communication — ICAN"
       },
-      "location": "ican-paris.com",
+      "location": "www.ican-design.fr",
       "status": null,
       "period": "2019–2020",
-      "url": "https://ican-paris.com"
+      "url": "https://www.ican-design.fr"
     },
     {
       "icon": "U",
