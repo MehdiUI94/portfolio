@@ -1,0 +1,99 @@
+{
+  "slug": "crm-mirakl",
+  "span": 7,
+  "title": {
+    "fr": "CRM marketplace + campagne emailing IA.",
+    "en": "Marketplace CRM + AI email campaign."
+  },
+  "summary": {
+    "fr": "Webapp pour matcher des marques avec des marketplaces (scoring catégorie, géo, etc.), scraping des contacts, lancement d'une campagne d'emailing via webhook N8N — agent Dust qui rédige les mails — aperçu modifiable avant envoi.",
+    "en": "Webapp matching brands with marketplaces (scoring on category, geography, etc.), contact scraping, email campaign launch via N8N webhook — Dust agent that drafts the mails — editable preview before sending."
+  },
+  "tags": ["Hackathon", "Full Stack", "N8N + Dust"],
+  "year": "2025",
+  "role": { "fr": "Full Stack · IA · Automation", "en": "Full Stack · AI · Automation" },
+  "stack": ["React", "N8N", "Dust", "Supabase"],
+  "cover": {
+    "gradient": "linear-gradient(135deg,#170944 0%,#2d00f7 60%,#c86bfe 100%)",
+    "color": "#f6f0e4",
+    "lines": ["CRM", "Mirakl"]
+  },
+  "links": [
+    { "label": "Live", "url": "https://effervescent-medovik-f1185a.netlify.app/en" },
+    { "label": "Loom", "url": "https://www.loom.com/share/df20c0146b6c42b9bc286129325f85ef" },
+    { "label": "Canva", "url": "https://canva.link/ztn3vq4f03rm0ms" }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Contexte",
+      "en": "Context"
+    },
+    {
+      "type": "paragraph",
+      "fr": "Projet réalisé lors du hackathon Mirakl Connect 2025. L'objectif : construire un outil permettant à Mirakl d'identifier rapidement les marques mode et bijoux à contacter, puis de lancer une campagne d'emailing personnalisée grâce à l'IA.",
+      "en": "Built during the Mirakl Connect 2025 hackathon. The goal: create a tool allowing Mirakl to quickly identify fashion and jewellery brands to reach out to, then launch a personalised email campaign powered by AI."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Fonctionnement",
+      "en": "How it works"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        { "fr": "Scoring des marques par catégorie et géographie pour matcher avec les marketplaces Mirakl.", "en": "Brand scoring by category and geography to match with Mirakl marketplaces." },
+        { "fr": "Scraping des contacts des marques cibles.", "en": "Contact scraping for target brands." },
+        { "fr": "Envoi d'un webhook N8N qui déclenche un agent Dust (email_writer) pour rédiger un email personnalisé.", "en": "N8N webhook triggers a Dust agent (email_writer) to draft a personalised email." },
+        { "fr": "Aperçu de l'email modifiable dans l'interface avant envoi final.", "en": "Editable email preview in the interface before final send." }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/crm-mirakl/image 13.png",
+      "alt": { "fr": "Interface CRM Mirakl", "en": "CRM Mirakl interface" },
+      "width": "wide"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/crm-mirakl/image 14.png",
+      "alt": { "fr": "Aperçu email personnalisé", "en": "Personalised email preview" },
+      "width": "wide"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Fichiers du projet",
+      "en": "Project files"
+    },
+    {
+      "type": "downloads",
+      "items": [
+        {
+          "label": { "fr": "Workflow N8N (JSON)", "en": "N8N Workflow (JSON)" },
+          "src": "assets/projects/crm-mirakl/workflow-n8n.json",
+          "filename": "marketplace-campaign-automation.json"
+        },
+        {
+          "label": { "fr": "Agent Dust — email_writer (YAML)", "en": "Dust Agent — email_writer (YAML)" },
+          "src": "assets/projects/crm-mirakl/email-writer-agent.yaml",
+          "filename": "email-writer-agent.yaml"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Démo & présentation",
+      "en": "Demo & slides"
+    },
+    {
+      "type": "video",
+      "provider": "loom",
+      "id": "df20c0146b6c42b9bc286129325f85ef"
+    }
+  ]
+}

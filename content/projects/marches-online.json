@@ -1,0 +1,75 @@
+{
+  "slug": "marches-online",
+  "span": 6,
+  "title": {
+    "fr": "Plateforme B2B & design system.",
+    "en": "B2B platform & design system."
+  },
+  "summary": {
+    "fr": "Conception du design system de Marchés Online — pictogrammes, composants, charte graphique adaptée à un public professionnel.",
+    "en": "Design system for Marchés Online — pictograms, components, brand guidelines tailored for a professional audience."
+  },
+  "tags": ["Design System", "B2B"],
+  "year": "2024",
+  "role": { "fr": "Product Designer", "en": "Product Designer" },
+  "stack": ["Figma", "50+ icônes"],
+  "cover": {
+    "gradient": "linear-gradient(135deg,#170944 0%,#5a1f8a 60%,#fbecd0 100%)",
+    "color": "#fbecd0",
+    "lines": ["Marchés", "Online"]
+  },
+  "links": [],
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Contexte",
+      "en": "Context"
+    },
+    {
+      "type": "paragraph",
+      "fr": "Marchés Online est une plateforme B2B dédiée aux professionnels des marchés publics et privés. Le projet consistait à concevoir un design system complet et une bibliothèque d'icônes sur mesure.",
+      "en": "Marchés Online is a B2B platform for public and private market professionals. The project involved designing a complete design system and a custom icon library."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Périmètre",
+      "en": "Scope"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        { "fr": "Plus de 50 pictogrammes dessinés sur mesure, cohérents avec la charte graphique.", "en": "50+ custom pictograms consistent with the brand guidelines." },
+        { "fr": "Composants Figma documentés : boutons, formulaires, tableaux, navigation, notifications.", "en": "Documented Figma components: buttons, forms, tables, navigation, notifications." },
+        { "fr": "Tokens de design : couleurs, typographie, espacements, rayons, ombres.", "en": "Design tokens: colours, typography, spacing, radii, shadows." },
+        { "fr": "Guidelines d'accessibilité WCAG AA pour chaque composant.", "en": "WCAG AA accessibility guidelines for each component." }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/marches-online/DS 1.png",
+      "alt": { "fr": "Design system Marchés Online", "en": "Marchés Online design system" },
+      "width": "wide"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/marches-online/DS.png",
+      "alt": { "fr": "Composants du design system", "en": "Design system components" },
+      "width": "wide"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/marches-online/Pictos MOL-1.png",
+      "alt": { "fr": "Pictogrammes Marchés Online", "en": "Marchés Online pictograms" },
+      "width": "normal"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/marches-online/Pictos MOL-2.png",
+      "alt": { "fr": "Pictogrammes catégorie 2", "en": "Pictograms category 2" },
+      "width": "normal"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "categories": [
+    {
+      "id": "dev",
+      "label": { "fr": "Dev & Code", "en": "Dev & Code" },
+      "accent": "#ff5a1f",
+      "items": [
+        "Python · SQL",
+        "React · React Native",
+        "HTML · CSS · JS",
+        "Supabase · Airtable",
+        "Git · GitHub"
+      ]
+    },
+    {
+      "id": "ai",
+      "label": { "fr": "IA & Automatisation", "en": "AI & Automation" },
+      "accent": "#c86bfe",
+      "items": [
+        "N8N · Make · Zapier",
+        "Dust · Agents IA",
+        "ChatGPT · Claude · Gemini",
+        "Codex · Claude Code · Cursor",
+        "Scraping · Enrichissement"
+      ]
+    },
+    {
+      "id": "product",
+      "label": { "fr": "Product & Build", "en": "Product & Build" },
+      "accent": "#61dfe8",
+      "items": [
+        { "fr": "Apps web & mobile", "en": "Web & mobile apps" },
+        { "fr": "Chatbots", "en": "Chatbots" },
+        { "fr": "Workflows métier", "en": "Business workflows" },
+        { "fr": "Dashboards & KPI", "en": "Dashboards & KPIs" },
+        { "fr": "CRM & Hubspot", "en": "CRM & Hubspot" }
+      ]
+    },
+    {
+      "id": "design",
+      "label": { "fr": "Design", "en": "Design" },
+      "accent": "#fbecd0",
+      "items": [
+        { "fr": "Recherche utilisateur", "en": "User research" },
+        { "fr": "Tests d'utilisabilité", "en": "Usability testing" },
+        { "fr": "Design systems", "en": "Design systems" },
+        "Figma",
+        { "fr": "Direction artistique", "en": "Art direction" }
+      ]
+    },
+    {
+      "id": "data",
+      "label": { "fr": "Data & Analytics", "en": "Data & Analytics" },
+      "accent": "#ffffff",
+      "items": [
+        "PowerBI · Dataiku",
+        "Google Analytics",
+        { "fr": "Business analytics", "en": "Business analytics" },
+        { "fr": "Data visualisation", "en": "Data visualisation" },
+        { "fr": "Marketing analytique", "en": "Marketing analytics" }
+      ]
+    }
+  ],
+  "pills": [
+    "Python", "SQL", "React", "React Native", "Supabase",
+    "N8N", "Make", "Airtable", "Notion", "Hubspot",
+    "Dust", "ChatGPT", "Claude", "Gemini", "Codex",
+    "Claude Code", "Cursor", "Replit", "PowerBI", "Dataiku", "Figma"
+  ]
+}

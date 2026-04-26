@@ -1,0 +1,48 @@
+{
+  "degrees": [
+    {
+      "icon": "E",
+      "name": {
+        "fr": "MSc AI Applied to Business — Eugenia School",
+        "en": "MSc AI Applied to Business — Eugenia School"
+      },
+      "location": "Paris 10e",
+      "status": { "fr": "en cours", "en": "in progress" },
+      "period": "2025–2027",
+      "url": "https://eugenia-school.com"
+    },
+    {
+      "icon": "I",
+      "name": {
+        "fr": "Mastère UX Design — ICAN Paris",
+        "en": "UX Design Master's — ICAN Paris"
+      },
+      "location": "ican-paris.com",
+      "status": null,
+      "period": "2020–2022",
+      "url": "https://ican-paris.com"
+    },
+    {
+      "icon": "I",
+      "name": {
+        "fr": "Bachelor Webdesign & Communication — ICAN",
+        "en": "Bachelor Webdesign & Communication — ICAN"
+      },
+      "location": "ican-paris.com",
+      "status": null,
+      "period": "2019–2020",
+      "url": "https://ican-paris.com"
+    },
+    {
+      "icon": "U",
+      "name": {
+        "fr": "DUT Informatique — IUT d'Orsay",
+        "en": "CS Associate Degree — IUT d'Orsay"
+      },
+      "location": "iut-orsay.universite-paris-saclay.fr",
+      "status": null,
+      "period": "2016–2018",
+      "url": "https://iut-orsay.universite-paris-saclay.fr"
+    }
+  ]
+}

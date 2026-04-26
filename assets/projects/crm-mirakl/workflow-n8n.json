@@ -1,0 +1,10 @@
+{
+  "name": "Marketplace Campaign Automation v2",
+  "description": "Workflow N8N — Hackathon Mirakl Connect 2025. Reçoit un webhook, groupe les marques, interroge un agent Dust (email_writer) pour rédiger des emails personnalisés, puis envoie un aperçu modifiable à l'interface React.",
+  "nodes": ["Webhook", "Campagne A – Toutes les marques", "Talk to an agent (Dust)", "Extract Structured Data", "If (Amazon/Zalando)", "Merge", "HTTP Request (preview)", "Respond to Webhook"],
+  "stack": ["N8N", "Dust", "React", "Supabase"],
+  "active": true,
+  "meta": {
+    "instanceId": "5e48dd06ff2c9011adc2412ae9b11792cee700556c23f2e0aee18e1c05f2b691"
+  }
+}

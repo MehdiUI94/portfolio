@@ -1,0 +1,68 @@
+{
+  "slug": "la-dalle",
+  "span": 5,
+  "title": {
+    "fr": "Réductions étudiantes & dashboard restos.",
+    "en": "Student discounts & restaurant dashboard."
+  },
+  "summary": {
+    "fr": "App mobile côté étudiants pour activer des réductions. Côté restaurateurs, web app de KPI et dashboard de suivi consommation. Construit principalement sur Cursor.",
+    "en": "Mobile app for students to activate discounts. On the restaurant side, web app with KPIs and a dashboard tracking customer consumption. Built mostly with Cursor."
+  },
+  "tags": ["Mobile", "B2B2C"],
+  "year": "2025",
+  "role": { "fr": "Full Stack · Product", "en": "Full Stack · Product" },
+  "stack": ["Cursor", "React Native", "Supabase"],
+  "cover": {
+    "gradient": "linear-gradient(135deg,#01192f 0%,#1d3a8a 60%,#61dfe8 100%)",
+    "color": "#f6f0e4",
+    "lines": ["La", "Dalle"]
+  },
+  "links": [],
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Contexte",
+      "en": "Context"
+    },
+    {
+      "type": "paragraph",
+      "fr": "La Dalle est une app B2B2C : les étudiants accèdent à des réductions dans des restaurants partenaires, tandis que les restaurateurs disposent d'un dashboard pour suivre leurs performances et la consommation de leurs clients.",
+      "en": "La Dalle is a B2B2C app: students access discounts at partner restaurants, while restaurant owners have a dashboard to track their performance and customer consumption."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Deux faces du produit",
+      "en": "Two sides of the product"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        { "fr": "App mobile React Native (étudiants) — activation des réductions, liste des restos partenaires, historique.", "en": "React Native mobile app (students) — discount activation, partner restaurant list, history." },
+        { "fr": "Web app (restaurateurs) — KPIs de performance, suivi de consommation client, gestion des offres.", "en": "Web app (restaurants) — performance KPIs, customer consumption tracking, offer management." },
+        { "fr": "Backend Supabase — authentification, base de données temps réel, gestion des sessions.", "en": "Supabase backend — authentication, real-time database, session management." }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/la-dalle/Frame 12.png",
+      "alt": { "fr": "App mobile La Dalle", "en": "La Dalle mobile app" },
+      "width": "wide"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/la-dalle/Frame 13.png",
+      "alt": { "fr": "Dashboard restaurateur", "en": "Restaurant dashboard" },
+      "width": "wide"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/la-dalle/Frame 14.png",
+      "alt": { "fr": "Écrans de l'application", "en": "Application screens" },
+      "width": "normal"
+    }
+  ]
+}

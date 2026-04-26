@@ -1,0 +1,63 @@
+{
+  "slug": "btp-dust",
+  "span": 5,
+  "title": {
+    "fr": "Audit + redesign automatisé d'un site BTP.",
+    "en": "Automated audit + redesign of a construction site."
+  },
+  "summary": {
+    "fr": "Pipeline d'agents Dust + Replit. Audit SEO et bonnes pratiques web, refonte UX/marketing, génération de code prêt à importer dans Replit pour finaliser le site.",
+    "en": "Dust + Replit agent pipeline. SEO and best-practice audit, UX/marketing redesign, code generation ready to import into Replit to finalise the site."
+  },
+  "tags": ["Agents IA", "SEO"],
+  "year": "2025",
+  "role": { "fr": "Architecte agents IA", "en": "AI agent architect" },
+  "stack": ["Dust", "Replit", "Claude"],
+  "cover": {
+    "gradient": "linear-gradient(135deg,#0a0716 0%,#3d1d6b 50%,#c86bfe 100%)",
+    "color": "#f6f0e4",
+    "lines": ["BTP", "Dust"]
+  },
+  "links": [],
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Contexte",
+      "en": "Context"
+    },
+    {
+      "type": "paragraph",
+      "fr": "Un client BTP avec un site vieillissant, peu optimisé pour le SEO et peu lisible sur mobile. L'objectif : automatiser l'audit et la refonte en un pipeline d'agents IA enchaînés.",
+      "en": "A construction client with an ageing website, poorly optimised for SEO and difficult to read on mobile. The goal: automate the audit and redesign using a chained AI agent pipeline."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Pipeline",
+      "en": "Pipeline"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        { "fr": "Agent Dust #1 — Audit SEO : analyse des balises, structure, performances, maillage interne.", "en": "Dust Agent #1 — SEO Audit: tags analysis, structure, performance, internal linking." },
+        { "fr": "Agent Dust #2 — Audit UX/Marketing : lisibilité, hiérarchie visuelle, appels à l'action.", "en": "Dust Agent #2 — UX/Marketing Audit: readability, visual hierarchy, calls to action." },
+        { "fr": "Agent Dust #3 — Génération du nouveau contenu et de la structure de page.", "en": "Dust Agent #3 — New content and page structure generation." },
+        { "fr": "Replit — Import du code généré pour finalisation et déploiement.", "en": "Replit — Import of generated code for finalisation and deployment." }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/btp-dust/Après.png",
+      "alt": { "fr": "Site BTP après refonte", "en": "Construction site after redesign" },
+      "width": "wide"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/btp-dust/Après-1.png",
+      "alt": { "fr": "Page de service après refonte", "en": "Service page after redesign" },
+      "width": "normal"
+    }
+  ]
+}

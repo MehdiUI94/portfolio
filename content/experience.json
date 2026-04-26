@@ -1,0 +1,85 @@
+{
+  "positions": [
+    {
+      "period": "2025 – 2027",
+      "role": {
+        "fr": "Développeur Full Stack — alternance",
+        "en": "Full Stack Developer — apprentice"
+      },
+      "org": "Smartback",
+      "location": "Paris 11e",
+      "bullets": [
+        {
+          "fr": "Développement d'apps web et mobile pour clients B2B.",
+          "en": "Building web and mobile apps for B2B clients."
+        },
+        {
+          "fr": "Architecture d'agents IA (Dust, Claude) et workflows d'automatisation (N8N, Make).",
+          "en": "Architecting AI agents (Dust, Claude) and automation workflows (N8N, Make)."
+        },
+        {
+          "fr": "Scraping et enrichissement de bases de données.",
+          "en": "Scraping and database enrichment."
+        },
+        {
+          "fr": "Création de chatbots intégrés au site client et au CRM.",
+          "en": "Building chatbots integrated into the client's site and CRM."
+        }
+      ]
+    },
+    {
+      "period": "2022 – 2025",
+      "role": {
+        "fr": "Product Designer",
+        "en": "Product Designer"
+      },
+      "org": "Infopro Digital",
+      "location": "",
+      "bullets": [
+        {
+          "fr": "Entretiens utilisateurs avec plus de 10 personnes pour recueillir et traiter les insights.",
+          "en": "User interviews with 10+ people to gather and process insights."
+        },
+        {
+          "fr": "Mise en place de 3 protocoles et animation de tests utilisateurs.",
+          "en": "Set up 3 protocols and ran usability tests."
+        },
+        {
+          "fr": "Design d'interfaces et wireframing sur 7 projets BtoB / BtoBtoC.",
+          "en": "UI design and wireframing across 7 BtoB / BtoBtoC projects."
+        },
+        {
+          "fr": "Création des design systems Decarbonation 2030 et Marchés Online (consultables en ligne).",
+          "en": "Built the Decarbonation 2030 and Marchés Online design systems (live online)."
+        },
+        {
+          "fr": "Réalisation de plus de 50 icônes adaptées à la charte graphique de chaque client.",
+          "en": "Drew 50+ icons matched to each client's brand guidelines."
+        }
+      ]
+    },
+    {
+      "period": "2019 – 2020",
+      "role": {
+        "fr": "Développeur Front End",
+        "en": "Front End Developer"
+      },
+      "org": "KTM Advance SAS",
+      "location": "",
+      "bullets": [
+        {
+          "fr": "Serious games et modules de formation en HTML / CSS / JavaScript.",
+          "en": "Serious games and training modules in HTML / CSS / JavaScript."
+        },
+        {
+          "fr": "Refonte de sites web selon les briefs clients.",
+          "en": "Website redesigns based on client briefs."
+        },
+        {
+          "fr": "Portage HTML (de Flash vers HTML).",
+          "en": "HTML porting (from Flash to HTML)."
+        }
+      ]
+    }
+  ]
+}

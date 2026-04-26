@@ -1,0 +1,70 @@
+{
+  "intro": [
+    {
+      "fr": "Mon parcours a commencé par un DUT Informatique, suivi d'un Bachelor à l'ICAN puis d'un Mastère UX Design. J'ai ensuite exercé près de trois années en tant que Product Designer chez Infopro Digital, sur des interfaces B2B, des design systems et de la recherche utilisateur.",
+      "en": "My path started with a CS associate degree, followed by a Bachelor at ICAN and a UX Design Master's. I then spent nearly three years as a Product Designer at Infopro Digital, on B2B interfaces, design systems and user research."
+    },
+    {
+      "fr": "Je suis aujourd'hui en alternance chez Smartback (Paris 11e) comme développeur full stack, en parallèle de mon MSc AI Applied to Business à Eugenia School (Paris 10e). Mon quotidien : applications web et mobile, chatbots, orchestration d'agents IA et de workflows N8N.",
+      "en": "Today I'm an apprentice at Smartback (Paris 11) as a full stack developer, alongside my MSc AI Applied to Business at Eugenia School (Paris 10). My day-to-day: web and mobile apps, chatbots, AI agents and N8N workflows."
+    }
+  ],
+  "timeline": [
+    {
+      "period": "2025 – 2027",
+      "tag": { "fr": "Aujourd'hui", "en": "Today" },
+      "title": {
+        "fr": "MSc AI Applied to Business + alternance Smartback",
+        "en": "MSc AI Applied to Business + Smartback apprenticeship"
+      },
+      "body": {
+        "fr": "Eugenia School (Paris 10e) en parallèle d'un poste de développeur full stack chez Smartback (Paris 11e).",
+        "en": "Eugenia School (Paris 10) alongside a full stack developer role at Smartback (Paris 11)."
+      }
+    },
+    {
+      "period": "2022 – 2025",
+      "title": {
+        "fr": "Product Designer — Infopro Digital",
+        "en": "Product Designer — Infopro Digital"
+      },
+      "body": {
+        "fr": "Interfaces B2B, design systems Decarbonation 2030 et Marchés Online, recherche utilisateur.",
+        "en": "B2B interfaces, Decarbonation 2030 and Marchés Online design systems, user research."
+      }
+    },
+    {
+      "period": "2020 – 2022",
+      "title": {
+        "fr": "Mastère UX Design — ICAN Paris",
+        "en": "UX Design Master's — ICAN Paris"
+      },
+      "body": {
+        "fr": "Spécialisation design produit, recherche utilisateur, conception d'interfaces.",
+        "en": "Specialisation in product design, user research, interface design."
+      }
+    },
+    {
+      "period": "2019 – 2020",
+      "title": {
+        "fr": "Développeur Front End — KTM Advance + Bachelor ICAN",
+        "en": "Front End Developer — KTM Advance + ICAN Bachelor"
+      },
+      "body": {
+        "fr": "Serious games HTML/CSS/JS, refontes web, portage Flash vers HTML, en parallèle du Bachelor Webdesign & Communication.",
+        "en": "HTML/CSS/JS serious games, web redesigns, Flash to HTML porting, alongside the Bachelor Webdesign & Communication."
+      }
+    },
+    {
+      "period": "2016 – 2018",
+      "title": {
+        "fr": "DUT Informatique — IUT d'Orsay",
+        "en": "CS Associate Degree — IUT d'Orsay"
+      },
+      "body": {
+        "fr": "Fondamentaux du développement, programmation, bases de données, algorithmique.",
+        "en": "Development fundamentals: programming, databases, algorithms."
+      }
+    }
+  ]
+}
