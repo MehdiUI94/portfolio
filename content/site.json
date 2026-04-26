@@ -14,15 +14,15 @@
       "en": ["Full stack developer,", "designer by training."]
     },
     "intro": {
-      "fr": "Mehdi Zitouni — développeur full stack chez Smartback, en alternance pendant mon MSc IA appliquée au Business à Eugenia School. Cinq années de design produit en amont. Aujourd'hui : apps web et mobile, chatbots et automatisations IA, avec une exigence design.",
-      "en": "Mehdi Zitouni — full stack developer at Smartback, on a work-study programme during my MSc AI Applied to Business at Eugenia School. Five years in product design beforehand. Today: web and mobile apps, chatbots and AI automations, with a design standard."
+      "fr": "Mehdi Zitouni — développeur full stack chez SmartBack, en alternance pendant mon MSc IA appliquée au Business à Eugenia School. Cinq années de design produit en amont. Aujourd'hui : apps web et mobile, chatbots et automatisations IA, avec une exigence design.",
+      "en": "Mehdi Zitouni — full stack developer at SmartBack, on a work-study programme during my MSc AI Applied to Business at Eugenia School. Five years in product design beforehand. Today: web and mobile apps, chatbots and AI automations, with a design standard."
     },
     "photo": "assets/photo_profil.jpg",
     "cv": "assets/cv.pdf",
     "stats": [
       {
         "label": { "fr": "Statut", "en": "Status" },
-        "value": { "fr": "Alternant chez Smartback", "en": "Apprentice at Smartback" }
+        "value": { "fr": "Alternant chez SmartBack", "en": "Apprentice at SmartBack" }
       },
       {
         "label": { "fr": "Basé à", "en": "Based in" },
@@ -39,7 +39,7 @@
     ]
   },
   "marquee": {
-    "items": ["Full Stack", "Automatisation N8N", "Agents IA", "Scraping", "Apps web et mobile", "Chatbots", "UX Design"]
+    "items": ["Full Stack", "Automatisation N8N, Make", "Agents IA", "Scraping", "Apps web et mobile", "Chatbots", "UX Design"]
   },
   "contact": {
     "title": { "fr": "Contact.", "en": "Contact." },

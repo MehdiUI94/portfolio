@@ -6,12 +6,12 @@
         "fr": "Développeur Full Stack — alternance",
         "en": "Full Stack Developer — apprentice"
       },
-      "org": "Smartback",
+      "org": "SmartBack",
       "location": "Paris 11e",
       "bullets": [
         {
-          "fr": "Développement d'apps web et mobile pour clients B2B.",
-          "en": "Building web and mobile apps for B2B clients."
+          "fr": "Développement d'apps web et mobile.",
+          "en": "Building web and mobile apps."
         },
         {
           "fr": "Architecture d'agents IA (Dust, Claude) et workflows d'automatisation (N8N, Make).",
@@ -20,10 +20,6 @@
         {
           "fr": "Scraping et enrichissement de bases de données.",
           "en": "Scraping and database enrichment."
-        },
-        {
-          "fr": "Création de chatbots intégrés au site client et au CRM.",
-          "en": "Building chatbots integrated into the client's site and CRM."
         }
       ]
     },

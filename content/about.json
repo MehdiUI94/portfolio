@@ -5,8 +5,8 @@
       "en": "My path started with a CS associate degree, followed by a Bachelor at ICAN and a UX Design Master's. I then spent nearly three years as a Product Designer at Infopro Digital, on B2B interfaces, design systems and user research."
     },
     {
-      "fr": "Je suis aujourd'hui en alternance chez Smartback (Paris 11e) comme développeur full stack, en parallèle de mon MSc AI Applied to Business à Eugenia School (Paris 10e). Mon quotidien : applications web et mobile, chatbots, orchestration d'agents IA et de workflows N8N.",
-      "en": "Today I'm an apprentice at Smartback (Paris 11) as a full stack developer, alongside my MSc AI Applied to Business at Eugenia School (Paris 10). My day-to-day: web and mobile apps, chatbots, AI agents and N8N workflows."
+      "fr": "Je suis aujourd'hui en alternance chez SmartBack (Paris 11e) comme développeur full stack, en parallèle de mon MSc AI Applied to Business à Eugenia School (Paris 10e). Mon quotidien : applications web et mobile, chatbots, orchestration d'agents IA et de workflows N8N et Make.",
+      "en": "Today I'm an apprentice at SmartBack (Paris 11) as a full stack developer, alongside my MSc AI Applied to Business at Eugenia School (Paris 10). My day-to-day: web and mobile apps, chatbots, AI agents and N8N, Make workflows."
     }
   ],
   "timeline": [
@@ -14,12 +14,12 @@
       "period": "2025 – 2027",
       "tag": { "fr": "Aujourd'hui", "en": "Today" },
       "title": {
-        "fr": "MSc AI Applied to Business + alternance Smartback",
-        "en": "MSc AI Applied to Business + Smartback apprenticeship"
+        "fr": "MSc AI Applied to Business + alternance SmartBack",
+        "en": "MSc AI Applied to Business + SmartBack apprenticeship"
       },
       "body": {
-        "fr": "Eugenia School (Paris 10e) en parallèle d'un poste de développeur full stack chez Smartback (Paris 11e).",
-        "en": "Eugenia School (Paris 10) alongside a full stack developer role at Smartback (Paris 11)."
+        "fr": "Eugenia School (Paris 10e) en parallèle d'un poste de développeur full stack chez SmartBack (Paris 11e).",
+        "en": "Eugenia School (Paris 10) alongside a full stack developer role at SmartBack (Paris 11)."
       }
     },
     {
