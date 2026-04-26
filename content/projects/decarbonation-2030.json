@@ -1,0 +1,70 @@
+{
+  "slug": "decarbonation-2030",
+  "span": 7,
+  "title": {
+    "fr": "Plateforme média décarbonation.",
+    "en": "Decarbonation media platform."
+  },
+  "summary": {
+    "fr": "Système éditorial et design system pour articles longs et data-viz. Mode lecture, table des matières contextuelle, partage par bloc.",
+    "en": "Editorial system and design system for long-form articles and data-viz. Reader mode, contextual ToC, share-by-block."
+  },
+  "tags": ["Editorial", "Design System"],
+  "year": "2024",
+  "role": { "fr": "Product Designer", "en": "Product Designer" },
+  "stack": ["Figma", "Design System"],
+  "cover": {
+    "gradient": "linear-gradient(135deg,#0a0716 0%,#5a1a05 60%,#ff5a1f 100%)",
+    "color": "#fbecd0",
+    "lines": ["Decarbonation", "2030"]
+  },
+  "links": [],
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Contexte",
+      "en": "Context"
+    },
+    {
+      "type": "paragraph",
+      "fr": "Infopro Digital lance une plateforme média dédiée à la décarbonation industrielle. Le défi : créer un système de lecture adapté aux articles longs et aux visualisations de données, pour un public professionnel exigeant.",
+      "en": "Infopro Digital launches a media platform dedicated to industrial decarbonation. The challenge: create a reading system suited for long-form articles and data visualisations, for a demanding professional audience."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Design system",
+      "en": "Design system"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        { "fr": "Palette dark/light adaptée aux longues sessions de lecture.", "en": "Dark/light palette suited for long reading sessions." },
+        { "fr": "Composants éditoriaux : callouts, data-viz, pull quotes, timelines.", "en": "Editorial components: callouts, data-viz, pull quotes, timelines." },
+        { "fr": "Mode lecture (typographie optimisée, marges généreuses, suppression des distractions).", "en": "Reader mode (optimised typography, generous margins, distraction removal)." },
+        { "fr": "Table des matières contextuelle et navigation par sections.", "en": "Contextual table of contents and section-based navigation." },
+        { "fr": "Partage par bloc — chaque paragraphe ou dataviz est partageable individuellement.", "en": "Share-by-block — each paragraph or dataviz is individually shareable." }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/decarbonation-2030/Maquette Desktop.png",
+      "alt": { "fr": "Maquette desktop Decarbonation 2030", "en": "Decarbonation 2030 desktop mockup" },
+      "width": "wide"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/decarbonation-2030/Maquette Tablette.png",
+      "alt": { "fr": "Maquette tablette", "en": "Tablet mockup" },
+      "width": "normal"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/decarbonation-2030/Color.png",
+      "alt": { "fr": "Palette de couleurs", "en": "Colour palette" },
+      "width": "normal"
+    }
+  ]
+}

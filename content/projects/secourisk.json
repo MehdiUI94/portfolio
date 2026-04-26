@@ -1,0 +1,69 @@
+{
+  "slug": "secourisk",
+  "span": 6,
+  "title": {
+    "fr": "Premiers secours en VR.",
+    "en": "First aid in VR."
+  },
+  "summary": {
+    "fr": "Interface diégétique pour environnement VR. Hiérarchie sans regard direct, retours haptiques mappés sur la voix.",
+    "en": "Diegetic UI for VR environments. Hierarchy without direct gaze, haptic feedback mapped to voice."
+  },
+  "tags": ["VR", "Edu"],
+  "year": "2023",
+  "role": { "fr": "UX/UI Designer", "en": "UX/UI Designer" },
+  "stack": ["Figma", "Unity"],
+  "cover": {
+    "gradient": "linear-gradient(135deg,#0a0716 0%,#5a000d 60%,#ff5a1f 100%)",
+    "color": "#f6f0e4",
+    "lines": ["Secourisk"]
+  },
+  "links": [],
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Contexte",
+      "en": "Context"
+    },
+    {
+      "type": "paragraph",
+      "fr": "Secourisk est un module de formation aux premiers secours en réalité virtuelle. Le projet portait sur la conception de l'interface utilisateur dans un environnement 3D immersif, avec des contraintes propres à la VR.",
+      "en": "Secourisk is a first aid training module in virtual reality. The project focused on designing the user interface in an immersive 3D environment, with VR-specific constraints."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Défis UX spécifiques à la VR",
+      "en": "VR-specific UX challenges"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        { "fr": "Interface diégétique — les éléments d'UI sont intégrés dans l'espace 3D, pas en overlay 2D.", "en": "Diegetic UI — UI elements are integrated into the 3D space, not as a 2D overlay." },
+        { "fr": "Hiérarchie sans regard direct — affordances visuelles fonctionnant sans que l'utilisateur regarde l'élément.", "en": "Hierarchy without direct gaze — visual affordances that work without the user looking at the element." },
+        { "fr": "Retours haptiques synchronisés avec les instructions vocales.", "en": "Haptic feedback synchronised with voice instructions." },
+        { "fr": "Réduction de la fatigue cognitive en situation de stress (simulation de premier secours).", "en": "Cognitive load reduction in stressful situations (first aid simulation)." }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/secourisk/Screen-Content.png",
+      "alt": { "fr": "Interface Secourisk", "en": "Secourisk interface" },
+      "width": "wide"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/secourisk/Screen-Content-1.png",
+      "alt": { "fr": "Écrans VR Secourisk", "en": "Secourisk VR screens" },
+      "width": "wide"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/secourisk/Screen-Content-2.png",
+      "alt": { "fr": "Détail interface diégétique", "en": "Diegetic interface detail" },
+      "width": "normal"
+    }
+  ]
+}

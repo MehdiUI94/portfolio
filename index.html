@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mehdi Zitouni — Développeur Full Stack & IA</title>
+  <meta name="description" content="Portfolio de Mehdi Zitouni, développeur full stack & IA, designer-développeur basé à Paris.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mehdi Zitouni — Développeur Full Stack & IA">
+  <meta property="og:description" content="Portfolio de Mehdi Zitouni, développeur full stack & IA.">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .nav-links a.active { color: var(--paper); }
+  </style>
+</head>
+<body>
+
+<a href="#work" class="skip">Aller au contenu principal</a>
+
+<!-- NAV -->
+<nav class="nav" aria-label="Navigation principale">
+  <div class="wrap nav-row">
+    <a href="index.html" class="brand">
+      <img id="brand-logo" src="assets/Calque 1.png" alt="Mehdi Zitouni logo" class="brand-logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="brand-mark" style="display:none" aria-hidden="true"></span>
+      <span id="brand-name">Mehdi Zitouni</span>
+    </a>
+    <div class="nav-links" role="list">
+      <a id="nav-work"    href="#work"    role="listitem">Mes projets</a>
+      <a id="nav-about"   href="#about"   role="listitem">À propos</a>
+      <a id="nav-xp"      href="#xp"      role="listitem">Mon expérience</a>
+      <a id="nav-skills"  href="#skills"  role="listitem">Compétences</a>
+      <a id="nav-contact" href="#contact" role="listitem">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Choisir la langue">
+        <button class="on" data-lang="fr" aria-pressed="true">FR</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="tagline" id="hero-tagline">Développeur Full Stack & IA · Paris</span>
+        <h1 class="head">
+          <span id="hero-h1a">Développeur full stack,</span><br>
+          <span id="hero-h1b">designer de formation.</span>
+        </h1>
+        <p class="hero-intro" id="hero-intro">Mehdi Zitouni — développeur full stack chez Smartback, en alternance pendant mon MSc IA appliquée au Business à Eugenia School.</p>
+        <div class="hero-cta">
+          <a href="#work" class="btn btn-primary">
+            <span id="hero-cta1">Voir les projets</span><span class="btn-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a id="hero-cv" href="assets/cv.pdf" class="btn btn-ghost" target="_blank" rel="noopener">
+            <span id="hero-cta2">Télécharger CV</span><span class="btn-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Informations rapides">
+        <div class="photo">
+          <img id="hero-photo" src="assets/photo_profil.jpg" alt="Mehdi Zitouni"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="photo-ph" style="display:none" aria-hidden="true">Photo</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><div class="k" id="stat-k-0">Statut</div><div class="v" id="stat-v-0">Alternant chez Smartback</div></div>
+          <div class="stat"><div class="k" id="stat-k-1">Basé à</div><div class="v" id="stat-v-1">Paris 11e</div></div>
+          <div class="stat"><div class="k" id="stat-k-2">École</div><div class="v" id="stat-v-2">Eugenia · MSc AI</div></div>
+          <div class="stat"><div class="k" id="stat-k-3">Langues</div><div class="v" id="stat-v-3">FR · EN</div></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee-track">
+    <span>Full Stack <i class="dot"></i> Automatisation N8N <i class="dot"></i> Agents IA <i class="dot"></i> Scraping <i class="dot"></i> Apps web et mobile <i class="dot"></i> Chatbots <i class="dot"></i> UX Design <i class="dot"></i> </span>
+    <span>Full Stack <i class="dot"></i> Automatisation N8N <i class="dot"></i> Agents IA <i class="dot"></i> Scraping <i class="dot"></i> Apps web et mobile <i class="dot"></i> Chatbots <i class="dot"></i> UX Design <i class="dot"></i> </span>
+  </div>
+</div>
+
+<main id="main-content">
+
+<!-- PROJECTS -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="num">01 — Projets sélectionnés</div>
+        <h2 class="serif">Mes projets.</h2>
+      </div>
+      <p class="sub">Trois projets dev et IA récents, trois projets design issus de mon parcours précédent.</p>
+    </div>
+    <div class="proj-grid" id="proj-grid" role="list" aria-label="Projets">
+      <!-- Rendered by JS -->
+      <div style="grid-column:span 12;padding:40px 0;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:13px;">Chargement des projets…</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="num">02 — À propos</div>
+        <h2 class="serif">À propos.</h2>
+      </div>
+      <p class="sub">Cinq années de design, deux de développement, et aujourd'hui les deux réunis autour de l'IA.</p>
+    </div>
+    <div class="about">
+      <div id="about-intro"></div>
+      <ol class="jt" id="journey-timeline" aria-label="Parcours chronologique"></ol>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="xp">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="num">03 — Expérience</div>
+        <h2 class="serif">Mon expérience.</h2>
+      </div>
+    </div>
+    <div id="experience-list"></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="num">04 — Compétences</div>
+        <h2 class="serif">Compétences.</h2>
+      </div>
+      <p class="sub">Cinq familles, regroupées par usage.</p>
+    </div>
+    <div class="skills" id="skills-grid"></div>
+    <div class="stack-pills" id="stack-pills"></div>
+
+    <!-- Education sub-section -->
+    <div class="sec-head" style="margin-top:120px">
+      <div>
+        <div class="num">05 — Formation</div>
+        <h2 class="serif">Formation.</h2>
+      </div>
+    </div>
+    <div class="certs" id="education-list"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div class="num mono" style="color:var(--muted);font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px">
+        06 — Travaillons ensemble
+      </div>
+      <h2 id="contact-title">Contact.</h2>
+      <p class="contact-subtitle" id="contact-subtitle">Mission, brief, ou simple échange. Réponse sous 24h en semaine.</p>
+      <div class="contact-grid" id="contact-grid"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span id="footer-text">2026 · Mehdi Zitouni</span>
+    <span>Portfolio</span>
+  </div>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
