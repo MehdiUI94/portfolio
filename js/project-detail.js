@@ -1,6 +1,6 @@
 /* project-detail.js — render a single project detail page */
 
-import { initLang, getLang, onLangChange, t } from './i18n.js';
+import { initLang, getLang, setLang, onLangChange, t } from './i18n.js';
 import { loadSite, loadProject, loadProjectIndex } from './content-loader.js';
 import { renderDetailCover, renderBlocks, initLightbox } from './projects.js';
 
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       renderNav(site);
       renderDetail(proj);
       initLightbox();
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
     });
 
     initLightbox();
@@ -42,11 +43,6 @@ function renderNav(site) {
   if (logo) { logo.src = site.brand.logo; logo.alt = site.brand.name + ' logo'; }
   const name = document.getElementById('brand-name');
   if (name) name.textContent = site.brand.name;
-  document.querySelectorAll('.lang button').forEach(b => {
-    b.addEventListener('click', () => {
-      import('./i18n.js').then(m => m.setLang(b.dataset.lang));
-    });
-  });
 }
 
 function renderDetail(proj) {

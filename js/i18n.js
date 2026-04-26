@@ -16,7 +16,9 @@ export function setLang(lang) {
   document.documentElement.lang = lang;
   try { localStorage.setItem('mz-lang', lang); } catch(e) {}
   document.querySelectorAll('.lang button').forEach(b => {
-    b.classList.toggle('on', b.dataset.lang === lang);
+    const active = b.dataset.lang === lang;
+    b.classList.toggle('on', active);
+    b.setAttribute('aria-pressed', active ? 'true' : 'false');
   });
   _listeners.forEach(fn => fn(lang));
 }
