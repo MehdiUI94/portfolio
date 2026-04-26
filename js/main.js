@@ -21,7 +21,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     renderAll(site, about, experience, skills, education, projects);
 
-    onLangChange(() => renderAll(site, about, experience, skills, education, projects));
+    onLangChange(() => {
+      renderAll(site, about, experience, skills, education, projects);
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    });
 
     initScrollAnimations();
     initNavActiveLinks();
