@@ -1,0 +1,31 @@
+# Claude Code local settings
+.claude/
+
+# Instructions de cours
+instructions/
+
+# Fichiers sources Figma
+assets/*.fig
+
+# PDFs bruts (hors CV)
+assets/0*.pdf
+assets/Portfolio PDF.pdf
+assets/*.Care*.pdf
+
+# Assets bruts à la racine (déjà copiés dans assets/projects/)
+assets/After*.png
+assets/Après*.png
+assets/Color*.png
+assets/DS*.png
+assets/DS *.png
+assets/Frame *.png
+assets/Frame*.png
+assets/Maquette *.png
+assets/Pictos MOL*.png
+assets/Pictos MOL *.png
+assets/Screen-Content*.png
+assets/image *.png
+
+# OS
+.DS_Store
+Thumbs.db
