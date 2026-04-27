@@ -6,8 +6,8 @@
     "en": "Decarbonation media platform."
   },
   "summary": {
-    "fr": "Système éditorial et design system pour articles longs et data-viz. Mode lecture, table des matières contextuelle, partage par bloc.",
-    "en": "Editorial system and design system for long-form articles and data-viz. Reader mode, contextual ToC, share-by-block."
+    "fr": "Maquettes d'un site internet conçu pour sensibiliser et guider les acteurs économiques vers la décarbonation de leurs activités.",
+    "en": "Website mockups designed to raise awareness and guide economic stakeholders toward decarbonising their activities."
   },
   "tags": ["Editorial", "Design System"],
   "year": "2024",
@@ -28,43 +28,126 @@
     },
     {
       "type": "paragraph",
-      "fr": "Infopro Digital lance une plateforme média dédiée à la décarbonation industrielle. Le défi : créer un système de lecture adapté aux articles longs et aux visualisations de données, pour un public professionnel exigeant.",
-      "en": "Infopro Digital launches a media platform dedicated to industrial decarbonation. The challenge: create a reading system suited for long-form articles and data visualisations, for a demanding professional audience."
+      "fr": "Decarbonation 2030 est un projet réalisé en entreprise. L'objectif était de réaliser les maquettes d'un site internet dont le but serait de sensibiliser et de guider les acteurs économiques vers une décarbonation de leurs activités, afin de faciliter leur transition énergétique.",
+      "en": "Decarbonation 2030 was created in a professional context. The goal was to design website mockups for a platform that would raise awareness and guide economic stakeholders toward decarbonising their activities, helping them move through their energy transition."
     },
     {
       "type": "heading",
       "level": 2,
-      "fr": "Design system",
-      "en": "Design system"
+      "fr": "Identité visuelle",
+      "en": "Visual identity"
     },
     {
-      "type": "list",
-      "ordered": false,
-      "items": [
-        { "fr": "Palette dark/light adaptée aux longues sessions de lecture.", "en": "Dark/light palette suited for long reading sessions." },
-        { "fr": "Composants éditoriaux : callouts, data-viz, pull quotes, timelines.", "en": "Editorial components: callouts, data-viz, pull quotes, timelines." },
-        { "fr": "Mode lecture (typographie optimisée, marges généreuses, suppression des distractions).", "en": "Reader mode (optimised typography, generous margins, distraction removal)." },
-        { "fr": "Table des matières contextuelle et navigation par sections.", "en": "Contextual table of contents and section-based navigation." },
-        { "fr": "Partage par bloc — chaque paragraphe ou dataviz est partageable individuellement.", "en": "Share-by-block — each paragraph or dataviz is individually shareable." }
+      "type": "paragraph",
+      "fr": "Le logo de Decarbonation 2030 contribue à déterminer l'identité visuelle du site. Sa simplicité s'inscrit dans une logique d'éco-conception : les couleurs restent simples et identiques sur fond clair comme sur fond sombre. Le motif hexagonal remplaçant le premier « o » rappelle les formules topologiques en chimie pour symboliser le carbone, élément central du projet.",
+      "en": "The Decarbonation 2030 logo helps define the site's visual identity. Its simplicity follows an eco-design logic: the colours remain simple and identical on both light and dark backgrounds. The hexagonal motif replacing the first 'o' evokes topological formulas in chemistry, symbolising carbon as the central element of the project."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/decarbonation-2030/Render-1.jpg",
+      "alt": { "fr": "Vitrine du projet Decarbonation 2030", "en": "Decarbonation 2030 project showcase" },
+      "width": "wide"
+    },
+    {
+      "type": "gallery",
+      "columns": 3,
+      "images": [
+        {
+          "src": "assets/projects/decarbonation-2030/logos.jpg",
+          "alt": { "fr": "Logo Decarbonation 2030", "en": "Decarbonation 2030 logo" }
+        },
+        {
+          "src": "assets/projects/decarbonation-2030/Primary.jpg",
+          "alt": { "fr": "Couleur primaire", "en": "Primary colour" }
+        },
+        {
+          "src": "assets/projects/decarbonation-2030/Neutral.jpg",
+          "alt": { "fr": "Palette neutre", "en": "Neutral palette" }
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Maquettes et contenus",
+      "en": "Mockups and content"
+    },
+    {
+      "type": "paragraph",
+      "fr": "La maquette de la page d'accueil présente des contenus pédagogiques spécialisés, comme des articles de fond et des textes de référence. Ces contenus sont mis à disposition pour aider à comprendre les enjeux environnementaux et contribuer au mouvement de la décarbonation en accompagnant les dirigeants d'entreprises et du secteur public.",
+      "en": "The homepage mockup presents specialised educational content such as in-depth articles and reference texts. This content helps users understand environmental challenges and contributes to the decarbonisation movement by supporting business and public-sector leaders."
+    },
+    {
+      "type": "gallery",
+      "columns": 2,
+      "images": [
+        {
+          "src": "assets/projects/decarbonation-2030/Home.png",
+          "alt": { "fr": "Page d'accueil Decarbonation 2030", "en": "Decarbonation 2030 homepage" }
+        },
+        {
+          "src": "assets/projects/decarbonation-2030/Decarbo Home.png",
+          "alt": { "fr": "Maquette de la page d'accueil", "en": "Homepage mockup" }
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "columns": 2,
+      "images": [
+        {
+          "src": "assets/projects/decarbonation-2030/Decarbo Article.png",
+          "alt": { "fr": "Maquette d'article", "en": "Article mockup" }
+        },
+        {
+          "src": "assets/projects/decarbonation-2030/Article Slot.png",
+          "alt": { "fr": "Bloc de contenu éditorial", "en": "Editorial content block" }
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Système d'interface",
+      "en": "Interface system"
+    },
+    {
+      "type": "gallery",
+      "columns": 3,
+      "images": [
+        {
+          "src": "assets/projects/decarbonation-2030/UI Kit Recette Decarbonation.jpg",
+          "alt": { "fr": "UI kit Decarbonation 2030", "en": "Decarbonation 2030 UI kit" }
+        },
+        {
+          "src": "assets/projects/decarbonation-2030/UI Kit Recette Decarbonation-1.jpg",
+          "alt": { "fr": "Composants UI Decarbonation 2030", "en": "Decarbonation 2030 UI components" }
+        },
+        {
+          "src": "assets/projects/decarbonation-2030/UI Kit Recette Decarbonation-2.jpg",
+          "alt": { "fr": "Composants UI Decarbonation 2030", "en": "Decarbonation 2030 UI components" }
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "columns": 2,
+      "images": [
+        {
+          "src": "assets/projects/decarbonation-2030/TYPOGRAPHY.jpg",
+          "alt": { "fr": "Typographie Decarbonation 2030", "en": "Decarbonation 2030 typography" }
+        },
+        {
+          "src": "assets/projects/decarbonation-2030/Blocks exemples.png",
+          "alt": { "fr": "Exemples de blocs éditoriaux", "en": "Editorial block examples" }
+        }
       ]
     },
     {
       "type": "image",
-      "src": "assets/projects/decarbonation-2030/Maquette Desktop.png",
-      "alt": { "fr": "Maquette desktop Decarbonation 2030", "en": "Decarbonation 2030 desktop mockup" },
+      "src": "assets/projects/decarbonation-2030/Home ressources.jpg",
+      "alt": { "fr": "Page ressources Decarbonation 2030", "en": "Decarbonation 2030 resources page" },
       "width": "wide"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/decarbonation-2030/Maquette Tablette.png",
-      "alt": { "fr": "Maquette tablette", "en": "Tablet mockup" },
-      "width": "normal"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/decarbonation-2030/Color.png",
-      "alt": { "fr": "Palette de couleurs", "en": "Colour palette" },
-      "width": "normal"
     }
   ]
 }

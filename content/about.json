@@ -1,12 +1,12 @@
 {
   "intro": [
     {
-      "fr": "Mon parcours a commencé par un DUT Informatique, suivi d'un Bachelor à l'ICAN puis d'un Mastère UX Design. J'ai ensuite exercé près de trois années en tant que Product Designer chez Infopro Digital, sur des interfaces B2B, des design systems et de la recherche utilisateur.",
-      "en": "My path started with a CS associate degree, followed by a Bachelor at ICAN and a UX Design Master's. I then spent nearly three years as a Product Designer at Infopro Digital, on B2B interfaces, design systems and user research."
+      "fr": "Mon parcours a commencé par un DUT Informatique à l'IUT d'Orsay, puis deux années comme Développeur front end chez KTM Advance. J'ai ensuite poursuivi à l'ICAN avec un Bachelor Web design et Communication graphique, puis un Mastère UX Design et Chef de Projet Numérique.",
+      "en": "My path started with a DUT in Computer Science at IUT d'Orsay, followed by two years as a front-end developer at KTM Advance. I then continued at ICAN with a Bachelor's degree in Web Design and Graphic Communication, followed by a Master's in UX Design and Digital Project Management."
     },
     {
-      "fr": "Je suis aujourd'hui en alternance chez SmartBack (Paris 11e) comme développeur full stack, en parallèle de mon MSc AI Applied to Business à Eugenia School (Paris 10e). Mon quotidien : applications web et mobile, chatbots, orchestration d'agents IA et de workflows N8N et Make.",
-      "en": "Today I'm an apprentice at SmartBack (Paris 11) as a full stack developer, alongside my MSc AI Applied to Business at Eugenia School (Paris 10). My day-to-day: web and mobile apps, chatbots, AI agents and N8N, Make workflows."
+      "fr": "J'ai ensuite travaillé trois ans comme Product Designer chez Infopro Digital, sur des interfaces BtoB et BtoBtoC, des tests utilisateurs, du wireframing et les design systems Decarbonation 2030 et Marchés Online. Aujourd'hui, je suis Développeur Full Stack, Automatisation IA chez SmartBack, en parallèle de mon MSc AI Applied to Business à Eugenia School.",
+      "en": "I then worked for three years as a Product Designer at Infopro Digital, on BtoB and BtoBtoC interfaces, user testing, wireframing, and the Decarbonation 2030 and Marchés Online design systems. Today, I am a Full Stack Developer, AI Automation at SmartBack, alongside my MSc AI Applied to Business at Eugenia School."
     }
   ],
   "timeline": [
@@ -14,12 +14,12 @@
       "period": "2025 – 2027",
       "tag": { "fr": "Aujourd'hui", "en": "Today" },
       "title": {
-        "fr": "MSc AI Applied to Business + alternance SmartBack",
-        "en": "MSc AI Applied to Business + SmartBack apprenticeship"
+        "fr": "MSc AI Applied to Business — Eugenia School + Développeur Full Stack, Automatisation IA — SmartBack",
+        "en": "MSc AI Applied to Business — Eugenia School + Full Stack Developer, AI Automation — SmartBack"
       },
       "body": {
-        "fr": "Eugenia School (Paris 10e) en parallèle d'un poste de développeur full stack chez SmartBack (Paris 11e).",
-        "en": "Eugenia School (Paris 10) alongside a full stack developer role at SmartBack (Paris 11)."
+        "fr": "Formation à Eugenia School (Paris 10) et alternance chez SmartBack : développement d'apps web, agents IA, workflows N8N/Make, scraping et enrichissement de bases Airtable.",
+        "en": "Studying at Eugenia School (Paris 10) while working at SmartBack: web app development, AI agents, N8N/Make workflows, scraping and Airtable database enrichment."
       }
     },
     {
@@ -29,41 +29,52 @@
         "en": "Product Designer — Infopro Digital"
       },
       "body": {
-        "fr": "Interfaces B2B, design systems Decarbonation 2030 et Marchés Online, recherche utilisateur.",
-        "en": "B2B interfaces, Decarbonation 2030 and Marchés Online design systems, user research."
+        "fr": "Interfaces BtoB et BtoBtoC, entretiens et tests utilisateurs, wireframing, création des design systems Decarbonation 2030 et Marchés Online, réalisation de plus de 50 icônes.",
+        "en": "BtoB and BtoBtoC interfaces, user interviews and testing, wireframing, creation of the Decarbonation 2030 and Marchés Online design systems, and 50+ custom icons."
       }
     },
     {
-      "period": "2020 – 2022",
+      "period": "2022 – 2024",
       "title": {
-        "fr": "Mastère UX Design — ICAN Paris",
-        "en": "UX Design Master's — ICAN Paris"
+        "fr": "Mastère UX Design et Chef de Projet Numérique — ICAN",
+        "en": "Master's in UX Design and Digital Project Management — ICAN"
       },
       "body": {
-        "fr": "Spécialisation design produit, recherche utilisateur, conception d'interfaces.",
-        "en": "Specialisation in product design, user research, interface design."
+        "fr": "Recherche utilisateurs, data visualisation, tests utilisateurs, analyse de données, marketing et prototypage.",
+        "en": "User research, data visualisation, user testing, data analysis, marketing and prototyping."
       }
     },
     {
-      "period": "2019 – 2020",
+      "period": "2021 – 2022",
       "title": {
-        "fr": "Développeur Front End — KTM Advance + Bachelor ICAN",
-        "en": "Front End Developer — KTM Advance + ICAN Bachelor"
+        "fr": "Bachelor Web design et Communication graphique — ICAN",
+        "en": "Bachelor's in Web Design and Graphic Communication — ICAN"
       },
       "body": {
-        "fr": "Serious games HTML/CSS/JS, refontes web, portage Flash vers HTML, en parallèle du Bachelor Webdesign & Communication.",
-        "en": "HTML/CSS/JS serious games, web redesigns, Flash to HTML porting, alongside the Bachelor Webdesign & Communication."
+        "fr": "Développement web, design thinking, PAO, design d'interfaces mobiles, motion design, HTML/CSS/JavaScript, PHP, SQL, WordPress, Suite Adobe et Figma.",
+        "en": "Web development, design thinking, desktop publishing, mobile interface design, motion design, HTML/CSS/JavaScript, PHP, SQL, WordPress, Adobe Suite and Figma."
       }
     },
     {
-      "period": "2016 – 2018",
+      "period": "2019 – 2021",
+      "title": {
+        "fr": "Développeur front end — KTM Advance",
+        "en": "Front-end Developer — KTM Advance"
+      },
+      "body": {
+        "fr": "Réalisation de serious games et modules de formation en HTML, CSS et JavaScript, refonte de sites web et développement du moteur interne.",
+        "en": "Built serious games and training modules in HTML, CSS and JavaScript, redesigned websites and contributed to the internal engine."
+      }
+    },
+    {
+      "period": "2017 – 2019",
       "title": {
         "fr": "DUT Informatique — IUT d'Orsay",
-        "en": "CS Associate Degree — IUT d'Orsay"
+        "en": "DUT in Computer Science — IUT d'Orsay"
       },
       "body": {
-        "fr": "Fondamentaux du développement, programmation, bases de données, algorithmique.",
-        "en": "Development fundamentals: programming, databases, algorithms."
+        "fr": "Programmation orientée objet, développement web, systèmes et réseaux, développement mobile, gestion de projet, robotique, HTML/CSS/JavaScript, PHP, SQL, Java, C++, VBA, Linux et Swift.",
+        "en": "Object-oriented programming, web development, systems and networks, mobile development, project management, robotics, HTML/CSS/JavaScript, PHP, SQL, Java, C++, VBA, Linux and Swift."
       }
     }
   ]

@@ -6,7 +6,7 @@
         "fr": "MSc AI Applied to Business — Eugenia School",
         "en": "MSc AI Applied to Business — Eugenia School"
       },
-      "location": "eugeniaschool.com",
+      "location": "Paris 10",
       "status": { "fr": "en cours", "en": "in progress" },
       "period": "2025–2027",
       "url": "https://www.eugeniaschool.com"
@@ -14,34 +14,34 @@
     {
       "icon": "I",
       "name": {
-        "fr": "Mastère UX Design — ICAN Paris",
-        "en": "UX Design Master's — ICAN Paris"
+        "fr": "Mastère UX Design et Chef de Projet Numérique — ICAN",
+        "en": "Master's in UX Design and Digital Project Management — ICAN"
       },
-      "location": "ican-design.fr",
+      "location": "Paris 16",
       "status": null,
-      "period": "2020–2022",
+      "period": "2022–2024",
       "url": "https://ican-design.fr"
     },
     {
       "icon": "I",
       "name": {
-        "fr": "Bachelor Webdesign & Communication — ICAN",
-        "en": "Bachelor Webdesign & Communication — ICAN"
+        "fr": "Bachelor Web design et Communication graphique — ICAN",
+        "en": "Bachelor's in Web Design and Graphic Communication — ICAN"
       },
-      "location": "ican-design.fr",
+      "location": "Paris 16",
       "status": null,
-      "period": "2019–2020",
+      "period": "2021–2022",
       "url": "https://www.ican-design.fr"
     },
     {
       "icon": "U",
       "name": {
         "fr": "DUT Informatique — IUT d'Orsay",
-        "en": "CS Associate Degree — IUT d'Orsay"
+        "en": "DUT in Computer Science — IUT d'Orsay"
       },
-      "location": "iut-orsay.universite-paris-saclay.fr",
+      "location": "Orsay",
       "status": null,
-      "period": "2016–2018",
+      "period": "2017–2019",
       "url": "https://www.iut-orsay.universite-paris-saclay.fr"
     }
   ]

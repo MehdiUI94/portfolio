@@ -121,7 +121,7 @@ export function initLightbox() {
   const lbImg = lb.querySelector('img');
   const lbClose = lb.querySelector('.lightbox-close');
 
-  document.querySelectorAll('.block-gallery img').forEach(img => {
+  document.querySelectorAll('.block-gallery img, .block-img img').forEach(img => {
     img.addEventListener('click', () => {
       lbImg.src = img.src;
       lbImg.alt = img.alt;
