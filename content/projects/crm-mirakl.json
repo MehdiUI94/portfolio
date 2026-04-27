@@ -2,8 +2,8 @@
   "slug": "crm-mirakl",
   "span": 7,
   "title": {
-    "fr": "CRM marketplace + campagne emailing IA.",
-    "en": "Marketplace CRM + AI email campaign."
+    "fr": "CRM et campagne emailing pour Mirakl.",
+    "en": "CRM and email campaign for Mirakl."
   },
   "summary": {
     "fr": "Webapp pour matcher des marques avec des marketplaces (scoring catégorie, géo, etc.), scraping des contacts, lancement d'une campagne d'emailing via webhook N8N — agent Dust qui rédige les mails — aperçu modifiable avant envoi.",
@@ -50,18 +50,6 @@
         { "fr": "Envoi d'un webhook N8N qui déclenche un agent Dust (email_writer) pour rédiger un email personnalisé.", "en": "N8N webhook triggers a Dust agent (email_writer) to draft a personalised email." },
         { "fr": "Aperçu de l'email modifiable dans l'interface avant envoi final.", "en": "Editable email preview in the interface before final send." }
       ]
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/crm-mirakl/image 13.png",
-      "alt": { "fr": "Interface CRM Mirakl", "en": "CRM Mirakl interface" },
-      "width": "wide"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/crm-mirakl/image 14.png",
-      "alt": { "fr": "Aperçu email personnalisé", "en": "Personalised email preview" },
-      "width": "wide"
     },
     {
       "type": "heading",

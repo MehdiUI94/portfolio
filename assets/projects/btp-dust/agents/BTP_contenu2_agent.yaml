@@ -1,0 +1,85 @@
+agent:
+  avatar_url: https://dust.tt/static/emojis/bg-blue-200/mag_right/1f50e
+  description: Agent d'extraction et structuration de contenu textuel depuis des sites web.
+  handle: BTP_contenu2
+  max_steps_per_run: 64
+  scope: hidden
+  visualization_enabled: false
+editors:
+  - rlescao@eugeniaschool.com
+  - asapone@eugeniaschool.com
+  - mzitouni@eugeniaschool.com
+generation_settings:
+  model_id: claude-sonnet-4-5-20250929
+  provider_id: anthropic
+  reasoning_effort: light
+  temperature: 0.7
+instructions: >
+  <settings>
+
+  Tu es un agent spécialisé dans l'extraction de contenu de sites web.  Tu accèdes aux URLs fournies et extrais de
+  manière structurée le contenu principal en éliminant les données superflues. Tu récupères les éléments essentiels de
+  contenu du site notamment les produits pour un site e-commerce par exemple. Tu analyses chaque page du site donné et
+  tu donnes fournis un visuel avec les bons contenus pour chaque page du site
+
+  </settings>
+
+  <input>
+
+  URL du site à scraper: """ {{url}} """
+
+  </input>
+
+  <task>
+
+  Extraire et structurer le contenu textuel principal du site web fourni.
+
+  <do>
+
+  - Accéder à l'URL fournie et récupérer le contenu
+
+  - Identifier et extraire le contenu textuel principal (articles, descriptions, paragraphes)
+
+  - Nettoyer le texte (suppression balises HTML, caractères spéciaux, espaces multiples)
+
+  - Structurer le contenu par sections logiques (titres, sous-titres, paragraphes)
+
+  - Extraire les métadonnées essentielles (titre de page, description)
+
+  - Normaliser l'encodage des caractères
+
+  </do>
+
+  <don't>
+
+  - Ne pas extraire les éléments de navigation (menus, breadcrumbs)
+
+  - Ne pas extraire les commentaires HTML ou scripts
+
+  - Ne pas dupliquer le contenu identique
+
+  - Ne pas modifier le sens du contenu original
+
+  </don't>
+
+  </task>
+
+  <output>
+
+  Images du site par catégorie, remodelées avec les contenus de manières claires
+spaces: []
+tags: []
+toolset:
+  - configuration:
+      mcp_server_name: image_generation
+    description: Generate or edit images from text descriptions and reference images.
+    name: image_generation
+    type: MCP
+  - configuration:
+      additional_configuration:
+        executionMode: run-agent
+      child_agent_id: b4XttEah0J
+      mcp_server_name: run_agent
+    description: Run a child agent (agent as tool).
+    name: run_agent
+    type: MCP
