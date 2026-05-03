@@ -18,7 +18,10 @@
     "color": "#f6f0e4",
     "lines": ["Secourisk"]
   },
-  "links": [],
+  "links": [
+    { "label": "Dossier du projet", "url": "https://urls.fr/Rsu4cF" },
+    { "label": "Prototype Figma", "url": "https://urls.fr/1PmBYj" }
+  ],
   "blocks": [
     {
       "type": "heading",
@@ -28,8 +31,13 @@
     },
     {
       "type": "paragraph",
-      "fr": "Secourisk est un module de formation aux premiers secours en réalité virtuelle. Le projet portait sur la conception de l'interface utilisateur dans un environnement 3D immersif, avec des contraintes propres à la VR.",
-      "en": "Secourisk is a first aid training module in virtual reality. The project focused on designing the user interface in an immersive 3D environment, with VR-specific constraints."
+      "fr": "Dans le cadre d'un projet étudiant sur le thème du phygital, nous avons réalisé un jeu éducatif destiné aux collégiens afin de leur apprendre les premiers secours.",
+      "en": "As part of a student project on the theme of phygital, we created an educational game aimed at secondary school students to teach them first aid."
+    },
+    {
+      "type": "paragraph",
+      "fr": "À l'aide d'un mannequin accompagné de capteurs et d'une tablette, il sera possible de former toute une classe aux premiers secours grâce à Secourisk.",
+      "en": "Using a mannequin equipped with sensors and a tablet, an entire class can be trained in first aid through Secourisk."
     },
     {
       "type": "heading",
