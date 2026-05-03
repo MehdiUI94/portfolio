@@ -45,7 +45,8 @@ export function renderProjectCard(proj, index) {
 export function renderDetailCover(proj) {
   const cover = proj.cover || {};
   if (cover.image) {
-    return `<div class="detail-cover detail-cover--img"><img src="${cover.image}" alt="${t(proj.title)}" class="cover-img" /></div>`;
+    const bg = `background:${cover.gradient}`;
+    return `<div class="detail-cover detail-cover--img" style="${bg}"><img src="${cover.image}" alt="${t(proj.title)}" class="cover-img cover-img--contain" /></div>`;
   }
   const style = `background:${cover.gradient};color:${cover.color}`;
   const lines = (cover.lines || [t(proj.title)]).join('<br/>');
