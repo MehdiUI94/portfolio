@@ -458,6 +458,7 @@ footer { padding: 36px 0 48px; border-top: 1px solid var(--line); margin-top: 80
 .block-img { width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
 .block-img img { width: 100%; height: auto; }
 .block-img.narrow { max-width: 480px; }
+.block-img.medium { max-width: 75%; margin-left: auto; margin-right: auto; }
 .block-img.wide { max-width: 100%; margin-left: calc(-1 * min(80px, 5vw)); margin-right: calc(-1 * min(80px, 5vw)); width: calc(100% + min(160px, 10vw)); max-width: none; }
 .block-img.full { margin-left: -48px; margin-right: -48px; width: calc(100% + 96px); border-radius: 0; max-width: none; }
 @media (max-width: 720px) { .block-img.wide, .block-img.full { margin-left: -24px; margin-right: -24px; width: calc(100% + 48px); } }

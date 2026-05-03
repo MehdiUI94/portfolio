@@ -52,7 +52,7 @@
       "type": "image",
       "src": "assets/projects/marches-online/DS.png",
       "alt": { "fr": "Composants du design system", "en": "Design system components" },
-      "width": "wide"
+      "width": "medium"
     },
     {
       "type": "image",
@@ -81,13 +81,13 @@
       "type": "image",
       "src": "assets/projects/marches-online/maquettes.jpg",
       "alt": { "fr": "Maquettes Marchés Online", "en": "Marchés Online mockups" },
-      "width": "wide"
+      "width": "medium"
     },
     {
       "type": "image",
       "src": "assets/projects/marches-online/home.jpg",
       "alt": { "fr": "Page d'accueil Marchés Online", "en": "Marchés Online homepage" },
-      "width": "wide"
+      "width": "medium"
     },
     {
       "type": "image",
