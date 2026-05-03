@@ -44,7 +44,7 @@ function initChatbot() {
       panel.classList.add('cb-panel--open');
       input.focus();
       if (history.length === 0) appendBotMessage(
-        'Bonjour ! Je suis l\'assistant de Mehdi. Posez-moi vos questions sur son parcours, ses projets ou ses compétences.'
+        'Bonjour ! Je suis Mehdi. Posez-moi vos questions sur mon parcours, mes projets ou mes compétences.'
       );
     } else {
       panel.classList.remove('cb-panel--open');
