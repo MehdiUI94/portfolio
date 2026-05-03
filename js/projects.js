@@ -17,13 +17,16 @@ export function renderProjectCard(proj, index) {
   const links = (proj.links || []).filter(l => l.url).map(l =>
     `<a href="${l.url}" target="_blank" rel="noopener">${l.label} ↗</a>`
   ).join('');
+  const coverInner = cover.image
+    ? `<div class="proj-cover-inner"><img src="${cover.image}" alt="${t(proj.title)}" class="cover-img" loading="lazy" /></div>`
+    : `<div class="proj-cover-inner">${lines}</div>`;
 
   return `
 <article class="proj ${spanClass} fade-up" data-slug="${proj.slug}">
   <a href="projects.html?slug=${proj.slug}" class="proj-cover" style="${style}" aria-label="${t(proj.title)}">
     <span class="proj-num">${NUM_LABELS[index]} / ${proj.slug.toUpperCase().replace(/-/g,' ')}</span>
     <div class="proj-tags">${tags}</div>
-    <div class="proj-cover-inner">${lines}</div>
+    ${coverInner}
   </a>
   <div class="proj-body">
     <div class="proj-name serif">${t(proj.title)}</div>
@@ -42,6 +45,9 @@ export function renderProjectCard(proj, index) {
 export function renderDetailCover(proj) {
   const cover = proj.cover || {};
   const style = `background:${cover.gradient};color:${cover.color}`;
+  if (cover.image) {
+    return `<div class="detail-cover detail-cover--img" style="${style}"><img src="${cover.image}" alt="${t(proj.title)}" class="cover-img" /></div>`;
+  }
   const lines = (cover.lines || [t(proj.title)]).join('<br/>');
   return `<div class="detail-cover" style="${style}">${lines}</div>`;
 }

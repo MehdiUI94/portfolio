@@ -2,8 +2,8 @@
   "slug": "decarbonation-2030",
   "span": 7,
   "title": {
-    "fr": "Plateforme média décarbonation.",
-    "en": "Decarbonation media platform."
+    "fr": "Décarbonation 2030.",
+    "en": "Décarbonation 2030."
   },
   "summary": {
     "fr": "Maquettes d'un site internet conçu pour sensibiliser et guider les acteurs économiques vers la décarbonation de leurs activités.",
@@ -16,7 +16,8 @@
   "cover": {
     "gradient": "linear-gradient(135deg,#0a0716 0%,#5a1a05 60%,#ff5a1f 100%)",
     "color": "#fbecd0",
-    "lines": ["Decarbonation", "2030"]
+    "lines": ["Decarbonation", "2030"],
+    "image": "assets/projects/decarbonation-2030/Render-1.jpg"
   },
   "links": [],
   "blocks": [

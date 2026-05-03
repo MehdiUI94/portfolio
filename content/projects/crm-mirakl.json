@@ -16,7 +16,8 @@
   "cover": {
     "gradient": "linear-gradient(135deg,#170944 0%,#2d00f7 60%,#c86bfe 100%)",
     "color": "#f6f0e4",
-    "lines": ["CRM", "Mirakl"]
+    "lines": ["CRM", "Mirakl"],
+    "image": "assets/projects/crm-mirakl/Render-1.jpg"
   },
   "links": [
     { "label": "Live", "url": "https://effervescent-medovik-f1185a.netlify.app/en" },

@@ -16,7 +16,8 @@
   "cover": {
     "gradient": "linear-gradient(135deg,#0a0716 0%,#3d1d6b 50%,#c86bfe 100%)",
     "color": "#f6f0e4",
-    "lines": ["BTP", "Dust"]
+    "lines": ["BTP", "Dust"],
+    "image": "assets/projects/btp-dust/Render-1.jpg"
   },
   "links": [
     { "label": "Loom", "url": "https://www.loom.com/share/e657274518c14eb2bd4465fa122b31f4" }

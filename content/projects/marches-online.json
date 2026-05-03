@@ -16,7 +16,8 @@
   "cover": {
     "gradient": "linear-gradient(135deg,#170944 0%,#5a1f8a 60%,#fbecd0 100%)",
     "color": "#fbecd0",
-    "lines": ["Marchés", "Online"]
+    "lines": ["Marchés", "Online"],
+    "image": "assets/projects/marches-online/Render-1.jpg"
   },
   "links": [],
   "blocks": [
@@ -28,8 +29,8 @@
     },
     {
       "type": "paragraph",
-      "fr": "Marchés Online est une plateforme B2B dédiée aux professionnels des marchés publics et privés. Le projet consistait à concevoir un design system complet et une bibliothèque d'icônes sur mesure.",
-      "en": "Marchés Online is a B2B platform for public and private market professionals. The project involved designing a complete design system and a custom icon library."
+      "fr": "Le projet Marchés Online est un projet réalisé en entreprise. L'objectif était de mettre à neuf un site internet vieillissant, pour permettre aux entreprises d'accéder à des marchés publics dans plein de secteurs différents à travers toute la France. Le but était de faire une refonte totale du site en se basant sur la charte graphique et d'ajouter/de faire évoluer des fonctionnalités plus adaptées aux utilisateurs, ce qui nécessite une recherche utilisateur préalable.",
+      "en": "Marchés Online is an in-house project. The goal was to modernise an ageing website, enabling businesses to access public tenders across many different sectors throughout France. The aim was a complete redesign based on the brand guidelines, adding and evolving features better suited to users — which required prior user research."
     },
     {
       "type": "heading",
