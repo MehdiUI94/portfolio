@@ -52,10 +52,6 @@ function renderDetail(proj) {
 
   document.title = t(proj.title) + ' — Mehdi Zitouni';
 
-  const cover = proj.cover || {};
-  const coverStyle = `background:${cover.gradient};color:${cover.color}`;
-  const coverLines = (cover.lines || [t(proj.title)]).join('<br>');
-
   const tags = (proj.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('');
   const metaStack = (proj.stack || []).join(' · ');
 
@@ -70,7 +66,7 @@ function renderDetail(proj) {
   <div class="detail-hero">
     <a href="index.html#work" class="detail-back" aria-label="Retour aux projets">← Tous les projets</a>
 
-    <div class="detail-cover" style="${coverStyle}" aria-hidden="true">${coverLines}</div>
+    ${renderDetailCover(proj)}
 
     <div class="proj-tags" style="position:static;margin-bottom:16px;justify-content:flex-start">${tags}</div>
     <h1 class="detail-title">${t(proj.title)}</h1>

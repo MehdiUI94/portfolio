@@ -10,7 +10,7 @@ const NUM_LABELS = ['01','02','03','04','05','06','07','08','09','10'];
 export function renderProjectCard(proj, index) {
   const spanClass = SPAN_CLASS[proj.span] || 'span-6';
   const cover = proj.cover || {};
-  const style = `background:${cover.gradient};color:${cover.color}`;
+  const style = cover.image ? '' : `background:${cover.gradient};color:${cover.color}`;
   const lines = (cover.lines || [t(proj.title)]).join('<br/>');
   const tags = (proj.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('');
   const metaStack = (proj.stack || []).join(' · ');
@@ -19,7 +19,7 @@ export function renderProjectCard(proj, index) {
   ).join('');
   const coverInner = cover.image
     ? `<div class="proj-cover-inner"><img src="${cover.image}" alt="${t(proj.title)}" class="cover-img" loading="lazy" /></div>`
-    : `<div class="proj-cover-inner">${lines}</div>`;
+    : `<div class="proj-cover-inner proj-cover-placeholder">${lines}</div>`;
 
   return `
 <article class="proj ${spanClass} fade-up" data-slug="${proj.slug}">
@@ -46,8 +46,9 @@ export function renderDetailCover(proj) {
   const cover = proj.cover || {};
   const style = `background:${cover.gradient};color:${cover.color}`;
   if (cover.image) {
-    return `<div class="detail-cover detail-cover--img" style="${style}"><img src="${cover.image}" alt="${t(proj.title)}" class="cover-img" /></div>`;
+    return `<div class="detail-cover detail-cover--img"><img src="${cover.image}" alt="${t(proj.title)}" class="cover-img" /></div>`;
   }
+  const style = `background:${cover.gradient};color:${cover.color}`;
   const lines = (cover.lines || [t(proj.title)]).join('<br/>');
   return `<div class="detail-cover" style="${style}">${lines}</div>`;
 }

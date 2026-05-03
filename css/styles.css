@@ -416,8 +416,8 @@ footer { padding: 36px 0 48px; border-top: 1px solid var(--line); margin-top: 80
   font-family: 'Fraunces', serif; font-size: clamp(48px,8vw,96px);
   font-style: italic; letter-spacing: -.03em; text-align: center;
 }
-.detail-cover--img { display: block; padding: 0; }
-.cover-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.detail-cover--img { display: block; position: relative; padding: 0; background: var(--ink-2); }
+.cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 .detail-title { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(32px,4.5vw,60px); line-height: 1.1; letter-spacing: -.02em; margin-bottom: 20px; }
 .detail-summary { font-size: 19px; color: var(--muted); max-width: 60ch; margin-bottom: 32px; }
 .detail-meta {
