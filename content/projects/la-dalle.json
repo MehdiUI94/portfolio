@@ -2,8 +2,8 @@
   "slug": "la-dalle",
   "span": 5,
   "title": {
-    "fr": "Réductions étudiantes & dashboard restos.",
-    "en": "Student discounts & restaurant dashboard."
+    "fr": "La Dalle.",
+    "en": "La Dalle."
   },
   "summary": {
     "fr": "App mobile côté étudiants pour activer des réductions. Côté restaurateurs, web app de KPI et dashboard de suivi consommation. Construit principalement sur Cursor.",

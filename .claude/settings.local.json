@@ -12,7 +12,9 @@
       "Bash(npm install *)",
       "Bash(git stash *)",
       "Bash(git commit *)",
-      "Bash(wrangler deploy *)"
+      "Bash(wrangler deploy *)",
+      "Bash(identify \"C:/Mehdi/Cours/Eugenia School/portfolio/assets/projects/marches-online/Render-1.jpg\")",
+      "Bash(python3 *)"
     ]
   }
 }
