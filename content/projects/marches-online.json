@@ -50,12 +50,6 @@
     },
     {
       "type": "image",
-      "src": "assets/projects/marches-online/DS 1.png",
-      "alt": { "fr": "Design system Marchés Online", "en": "Marchés Online design system" },
-      "width": "wide"
-    },
-    {
-      "type": "image",
       "src": "assets/projects/marches-online/DS.png",
       "alt": { "fr": "Composants du design system", "en": "Design system components" },
       "width": "wide"
@@ -70,6 +64,35 @@
       "type": "image",
       "src": "assets/projects/marches-online/Pictos MOL-2.png",
       "alt": { "fr": "Pictogrammes catégorie 2", "en": "Pictograms category 2" },
+      "width": "normal"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Direction artistique",
+      "en": "Art Direction"
+    },
+    {
+      "type": "paragraph",
+      "fr": "La piste retenue est donc celle-ci avec un réel besoin d'épurer la page sans perdre de contenu. La direction artistique amène des polygones qui permettent de mettre du rythme dans la page tout en démarquant correctement les nombreux éléments du site.",
+      "en": "The chosen direction focuses on simplifying the page without losing content. The art direction introduces polygons that bring rhythm to the page while clearly distinguishing the many elements of the site."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/marches-online/maquettes.jpg",
+      "alt": { "fr": "Maquettes Marchés Online", "en": "Marchés Online mockups" },
+      "width": "wide"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/marches-online/home.jpg",
+      "alt": { "fr": "Page d'accueil Marchés Online", "en": "Marchés Online homepage" },
+      "width": "wide"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/marches-online/logo.jpg",
+      "alt": { "fr": "Logo Marchés Online", "en": "Marchés Online logo" },
       "width": "normal"
     }
   ]
