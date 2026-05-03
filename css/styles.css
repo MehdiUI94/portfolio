@@ -266,12 +266,14 @@ section { padding: 120px 0; }
   border-top: 1px solid var(--line); padding-top: 16px; margin-top: auto;
 }
 .proj-meta b { color: var(--paper); font-weight: 500; margin-left: 6px; }
-.proj-links { display: flex; gap: 14px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+.proj-links { display: flex; gap: 10px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
 .proj-links a {
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; transition: .2s;
+  padding: 7px 14px; border-radius: 999px; transition: .2s;
+  background: linear-gradient(135deg, var(--plum), var(--orange));
+  color: var(--paper); font-weight: 500;
 }
-.proj-links a:hover { border-color: var(--paper); background: rgba(255,255,255,.05); }
+.proj-links a:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(200,107,254,.4); }
 
 /* ============================================
    ABOUT
@@ -428,14 +430,16 @@ footer { padding: 36px 0 48px; border-top: 1px solid var(--line); margin-top: 80
   padding-top: 24px; border-top: 1px solid var(--line);
 }
 .detail-meta b { color: var(--paper); font-weight: 500; margin-left: 6px; }
-.detail-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.detail-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 .detail-links a {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 10px 18px; border: 1px solid var(--line); border-radius: 999px;
-  font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .1em;
-  text-transform: uppercase; transition: .2s;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 24px; border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: .08em;
+  text-transform: uppercase; font-weight: 500; transition: .2s;
+  background: linear-gradient(135deg, var(--plum), var(--orange));
+  color: var(--paper);
 }
-.detail-links a:hover { border-color: var(--paper); background: rgba(255,255,255,.05); }
+.detail-links a:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(200,107,254,.4); }
 .detail-content { padding: 80px 0; max-width: 860px; margin: 0 auto; }
 
 /* Blocks */

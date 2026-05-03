@@ -16,7 +16,8 @@
   "cover": {
     "gradient": "linear-gradient(135deg,#0a0716 0%,#5a000d 60%,#ff5a1f 100%)",
     "color": "#f6f0e4",
-    "lines": ["Secourisk"]
+    "lines": ["Secourisk"],
+    "image": "assets/projects/secourisk/Render-1.jpg"
   },
   "links": [
     { "label": "Dossier du projet", "url": "https://urls.fr/Rsu4cF" },
