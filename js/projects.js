@@ -104,6 +104,12 @@ function renderBlock(b, lang) {
     case 'embed':
       return `<div class="block"><div class="block-video" style="padding-bottom:${b.height ? b.height + 'px' : '56.25%'};"><iframe src="${b.url}" allowfullscreen title="Embed"></iframe></div></div>`;
 
+    case 'links': {
+      const items = (b.items || []).map(item =>
+        `<a href="${item.url}" target="_blank" rel="noopener">${item.label} ↗</a>`
+      ).join('');
+      return `<div class="block"><div class="block-links">${items}</div></div>`;
+    }
     case 'downloads': {
       const items = (b.items || []).map(item => `
 <div class="dl-item">

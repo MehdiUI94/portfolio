@@ -19,10 +19,6 @@
     "lines": ["Secourisk"],
     "image": "assets/projects/secourisk/Render-1.jpg"
   },
-  "links": [
-    { "label": "Dossier du projet", "url": "https://urls.fr/Rsu4cF" },
-    { "label": "Prototype Figma", "url": "https://urls.fr/1PmBYj" }
-  ],
   "blocks": [
     {
       "type": "heading",
@@ -41,38 +37,12 @@
       "en": "Using a mannequin equipped with sensors and a tablet, an entire class can be trained in first aid through Secourisk."
     },
     {
-      "type": "heading",
-      "level": 2,
-      "fr": "Défis UX spécifiques à la VR",
-      "en": "VR-specific UX challenges"
-    },
-    {
-      "type": "list",
-      "ordered": false,
+      "type": "links",
       "items": [
-        { "fr": "Interface diégétique — les éléments d'UI sont intégrés dans l'espace 3D, pas en overlay 2D.", "en": "Diegetic UI — UI elements are integrated into the 3D space, not as a 2D overlay." },
-        { "fr": "Hiérarchie sans regard direct — affordances visuelles fonctionnant sans que l'utilisateur regarde l'élément.", "en": "Hierarchy without direct gaze — visual affordances that work without the user looking at the element." },
-        { "fr": "Retours haptiques synchronisés avec les instructions vocales.", "en": "Haptic feedback synchronised with voice instructions." },
-        { "fr": "Réduction de la fatigue cognitive en situation de stress (simulation de premier secours).", "en": "Cognitive load reduction in stressful situations (first aid simulation)." }
+        { "label": "Dossier du projet", "url": "https://urls.fr/Rsu4cF" },
+        { "label": "Prototype Figma", "url": "https://urls.fr/1PmBYj" }
       ]
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/secourisk/Screen-Content.png",
-      "alt": { "fr": "Interface Secourisk", "en": "Secourisk interface" },
-      "width": "wide"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/secourisk/Screen-Content-1.png",
-      "alt": { "fr": "Écrans VR Secourisk", "en": "Secourisk VR screens" },
-      "width": "wide"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/secourisk/Screen-Content-2.png",
-      "alt": { "fr": "Détail interface diégétique", "en": "Diegetic interface detail" },
-      "width": "normal"
     }
-  ]
+  ],
+  "links": []
 }
