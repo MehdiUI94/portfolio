@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk '{print $2}')",
+      "Bash(xargs -I{} sh -c 'jq -r \"select\\(.message.content != null\\) | .message.content[] | select\\(.type == \\\\\"tool_use\\\\\"\\) | [.name, \\(.input.command // \\\\\"\\\\\"\\)] | @tsv\" \"{}\" 2>/dev/null')",
+      "Bash(python3 -)",
+      "Bash(git commit -m ' *)",
+      "Bash(git add *)",
+      "Bash(git push *)",
+      "Bash(gh api *)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(npm install *)"
+    ]
+  }
+}
