@@ -626,3 +626,6 @@ footer { padding: 36px 0 48px; border-top: 1px solid var(--line); margin-top: 80
 }
 #cb-send:disabled { opacity: .4; cursor: not-allowed; }
 #cb-send svg { width: 16px; height: 16px; fill: var(--paper); }
+
+.cb-msg a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+.cb-msg a:hover { color: var(--paper); }

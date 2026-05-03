@@ -105,10 +105,27 @@ function initChatbot() {
     scrollBottom();
   }
 
+  function parseLinks(text) {
+    const escaped = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return escaped
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1 ↗</a>')
+      .replace(/\[([^\]]+)\]\((#[^)]+)\)/g, (_, label, hash) =>
+        `<a href="${hash}" class="cb-internal-link">${label}</a>`
+      );
+  }
+
   function appendBotMessage(text) {
     const el = document.createElement('div');
     el.className = 'cb-msg cb-msg--bot';
-    el.textContent = text;
+    el.innerHTML = parseLinks(text);
+    el.querySelectorAll('a.cb-internal-link').forEach(a => {
+      a.addEventListener('click', () => {
+        isOpen = false;
+        panel.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+        panel.classList.remove('cb-panel--open');
+      });
+    });
     messages.appendChild(el);
     scrollBottom();
   }
