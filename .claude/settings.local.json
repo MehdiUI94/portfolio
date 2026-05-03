@@ -9,7 +9,10 @@
       "Bash(git push *)",
       "Bash(gh api *)",
       "Bash(echo \"exit:$?\")",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(git stash *)",
+      "Bash(git commit *)",
+      "Bash(wrangler deploy *)"
     ]
   }
 }
