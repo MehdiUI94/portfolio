@@ -16,7 +16,25 @@
       "Bash(identify \"C:/Mehdi/Cours/Eugenia School/portfolio/assets/projects/marches-online/Render-1.jpg\")",
       "Bash(python3 *)",
       "Bash(Remove-Item *)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Mehdi\\\\Cours\\\\Eugenia School\\\\portfolio\" -Recurse -Force -File)",
+      "Bash(Select-Object FullName, Length, LastWriteTime, Attributes)",
+      "Bash(Sort-Object FullName)",
+      "Bash(Format-Table -AutoSize)",
+      "PowerShell(ConvertTo-String *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Mehdi\\\\Cours\\\\Eugenia School\\\\portfolio\" -Recurse -Force -File | Select-Object FullName, @{Name='Size\\(KB\\)';Expression={[math]::Round\\($_.Length/1KB,2\\)}}, LastWriteTime | Sort-Object FullName | Format-Table -AutoSize)",
+      "PowerShell(Split-Path *)",
+      "Bash(git count-objects *)",
+      "PowerShell(cd \"C:\\\\Mehdi\\\\Cours\\\\Eugenia School\\\\portfolio\"; if \\(Test-Path \".wrangler\"\\) { Get-ChildItem -Recurse \".wrangler\" | Format-Table Name, @{N='Taille';E={if\\($_.PSIsContainer\\){\"[dossier]\"}else{[math]::Round\\($_.Length/1KB,1\\).ToString\\(\\)+\"KB\"}}}, FullName -AutoSize })",
+      "PowerShell(cd \"C:\\\\Mehdi\\\\Cours\\\\Eugenia School\\\\portfolio\"; if \\(Test-Path \"instructions\"\\) { Get-ChildItem -Recurse \"instructions\" | Format-Table Name, @{N='Taille';E={if\\($_.PSIsContainer\\){\"[dossier]\"}else{[math]::Round\\($_.Length/1KB,1\\).ToString\\(\\)+\"KB\"}}}, FullName -AutoSize })",
+      "PowerShell(Test-Path *)",
+      "PowerShell(cd \"C:\\\\Mehdi\\\\Cours\\\\Eugenia School\\\\portfolio\"; Get-ChildItem \"chatbot-server\" | Format-Table Name, @{N='Type';E={if\\($_.PSIsContainer\\){\"[dossier]\"}else{\"fichier\"}}})",
+      "PowerShell(cd \"C:\\\\Mehdi\\\\Cours\\\\Eugenia School\\\\portfolio\"; $size = \\(Get-ChildItem -Recurse \"chatbot-server\\\\node_modules\" -File | Measure-Object -Property Length -Sum\\).Sum; Write-Host \"node_modules: $\\([math]::Round\\($size/1MB,2\\)\\) MB\")",
+      "Bash(git rev-list *)",
+      "Bash(git cat-file *)",
+      "Bash(sort -k3 -rn)",
+      "PowerShell(cd \"C:\\\\Mehdi\\\\Cours\\\\Eugenia School\\\\portfolio\"; Test-Path \"assets\\\\Portfolio \\(Version Premium\\).fig\"; Get-ChildItem \"assets\" -File | Format-Table Name, @{N='Taille';E={[math]::Round\\($_.Length/1MB,2\\).ToString\\(\\)+\" MB\"}} -AutoSize)",
+      "PowerShell(cd \"C:\\\\Mehdi\\\\Cours\\\\Eugenia School\\\\portfolio\"; Get-ChildItem \"assets\" -File -Recurse | Where-Object { $_.Name -match '\\\\.fig$|\\\\.tar\\\\.gz$|\\\\.zip$' } | Format-Table Name, @{N='Taille';E={[math]::Round\\($_.Length/1MB,2\\).ToString\\(\\)+\" MB\"}}, DirectoryName -AutoSize)"
     ]
   }
 }
