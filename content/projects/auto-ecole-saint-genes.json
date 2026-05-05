@@ -1,0 +1,107 @@
+{
+  "slug": "auto-ecole-saint-genes",
+  "span": 5,
+  "title": {
+    "fr": "SEO multi-agents pour auto-école.",
+    "en": "Multi-agent SEO for driving school."
+  },
+  "summary": {
+    "fr": "Pipeline SEO à 4 agents IA chaînés (Audit → Contenu → Design → Code) + site Express.js 25 pages avec Schema.org, WCAG AA et auto-évaluation intégrée.",
+    "en": "4-agent SEO pipeline (Audit → Content → Design → Code) + 25-page Express.js site with Schema.org, WCAG AA compliance and built-in self-audit."
+  },
+  "tags": ["SEO/GEO", "Agents IA", "Full Stack"],
+  "year": "2025",
+  "role": { "fr": "Architecte agents IA · Dev Full Stack", "en": "AI Agent Architect · Full Stack Dev" },
+  "stack": ["Anthropic API", "Express.js", "Schema.org"],
+  "cover": {
+    "gradient": "linear-gradient(135deg,#020e1f 0%,#003566 55%,#0077b6 100%)",
+    "color": "#f6f0e4",
+    "lines": ["Auto-École", "Saint-Genès"],
+    "image": "assets/projects/auto-ecole-saint-genes/Render-1.png"
+  },
+  "links": [],
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Contexte",
+      "en": "Context"
+    },
+    {
+      "type": "paragraph",
+      "fr": "Auto-École Saint-Genès (Bordeaux, fondée en 1984) affiche 93 % de taux de réussite — vs 67 % de moyenne nationale — et figure en tête du classement Sud-Ouest. Malgré ces atouts, l'école était quasi-invisible sur le web local : hors top 10 sur \"auto-école bordeaux\", absente des réponses IA (ChatGPT, Perplexity, Google AI Overview), sans page dédiée boîte automatique ni balisage Schema.org.",
+      "en": "Auto-École Saint-Genès (Bordeaux, founded 1984) boasts a 93% pass rate — vs 67% national average — and ranks first in the Sud-Ouest listing. Despite these strengths, the school was nearly invisible online: outside the top 10 for \"auto-école bordeaux\", absent from AI answers (ChatGPT, Perplexity, Google AI Overview), with no dedicated automatic gearbox page and zero Schema.org markup."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/auto-ecole-saint-genes/project-card.svg",
+      "alt": { "fr": "Diagnostic SEO avant/après — Auto-École Saint-Genès", "en": "SEO before/after diagnostic — Auto-École Saint-Genès" },
+      "width": "wide"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Solution — Pipeline 4 agents IA",
+      "en": "Solution — 4-agent AI pipeline"
+    },
+    {
+      "type": "paragraph",
+      "fr": "Plutôt que de produire manuellement le contenu et le code, j'ai conçu un pipeline SEO à 4 agents IA chaînés. Chaque agent reçoit l'output JSON de l'agent précédent comme input. La communication inter-agents est du JSON strict (aucun markdown) pour garantir la chaînabilité machine-to-machine.",
+      "en": "Rather than producing content and code manually, I designed a 4-agent SEO pipeline where each agent receives the previous agent's JSON output as input. Inter-agent communication uses strict JSON (no markdown) to ensure machine-to-machine chaining."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/auto-ecole-saint-genes/pipeline-agents.svg",
+      "alt": { "fr": "Pipeline 4 agents IA — Audit → Contenu → Design → Code", "en": "4-agent AI pipeline — Audit → Content → Design → Code" },
+      "width": "wide"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        { "fr": "Agent SEO — Audite le contenu existant, identifie les gaps, produit la stratégie de mots-clés et le plan de site (output : 14 mots-clés, 6 pages prioritaires, 5 gaps critiques).", "en": "SEO Agent — Audits existing content, identifies gaps, produces keyword strategy and site plan (output: 14 keywords, 6 priority pages, 5 critical gaps)." },
+        { "fr": "Agent Contenu — Rédige le contenu optimisé page par page : H1, FAQ (≥3 questions/réponses featured snippets), CTA, méta-tags. Paramètre ton : 4 variantes A/B sans nouveau brief.", "en": "Content Agent — Writes optimised content page by page: H1, FAQ (≥3 featured snippet Q&As), CTAs, meta tags. Tone parameter: 4 A/B variants without a new brief." },
+        { "fr": "Agent Design — Crée le design system complet : palette WCAG AA (contraste ≥ 4.5:1), Google Fonts (Bricolage Grotesque + DM Sans), tokens CSS, output bloc :root{} prêt à injecter.", "en": "Design Agent — Creates the full design system: WCAG AA palette (contrast ≥ 4.5:1), Google Fonts (Bricolage Grotesque + DM Sans), CSS tokens, outputs ready-to-inject :root{} block." },
+        { "fr": "Agent Dev — Assemble contenu + design en HTML production-ready, puis s'auto-audite sur 10 critères SEO/accessibilité avant de retourner le résultat. Aucun post-traitement manuel.", "en": "Dev Agent — Assembles content + design into production-ready HTML, then self-audits on 10 SEO/accessibility criteria before returning the result. No manual post-processing." }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Site web production — 25 pages",
+      "en": "Production website — 25 pages"
+    },
+    {
+      "type": "paragraph",
+      "fr": "En parallèle du pipeline agent, un site Express.js complet a été construit avec données réelles injectées sur chaque page (adresse, téléphone, taux de réussite 93 %, agréments Qualiopi/CPF/AGEFIPH). Couverture : formations voiture, moto, financement, code de la route, préinscription, pages légales.",
+      "en": "Alongside the agent pipeline, a full Express.js site was built with real data injected on every page (address, phone, 93% pass rate, Qualiopi/CPF/AGEFIPH accreditations). Coverage: car and motorbike training, financing, highway code, pre-registration, legal pages."
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        { "fr": "Schema.org sur 100% des pages : DrivingSchool, BreadcrumbList, FAQPage, Course, Offer.", "en": "Schema.org on 100% of pages: DrivingSchool, BreadcrumbList, FAQPage, Course, Offer." },
+        { "fr": "WCAG AA — contrastes 4.5:1, skip-links, ARIA landmarks, focus visible sur tous les éléments interactifs.", "en": "WCAG AA — 4.5:1 contrast, skip-links, ARIA landmarks, focus visible on all interactive elements." },
+        { "fr": "3 routes API : contact, inscription, paiement Stripe (graceful degradation sans clé).", "en": "3 API routes: contact, registration, Stripe payment (graceful degradation without key)." },
+        { "fr": "Flat-file sans base de données — contacts et inscriptions persistent en JSON local, déployable sur tout hébergeur.", "en": "Flat-file without a database — contacts and registrations persist in local JSON, deployable on any host." }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Compétences démontrées",
+      "en": "Skills demonstrated"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        { "fr": "Stratégie SEO locale — audit de gaps, plan de mots-clés, architecture d'information.", "en": "Local SEO strategy — gap audit, keyword plan, information architecture." },
+        { "fr": "GEO (Generative Engine Optimization) — optimisation pour citation par les IA : ChatGPT, Perplexity, Google AI Overview.", "en": "GEO (Generative Engine Optimization) — optimisation for AI citation: ChatGPT, Perplexity, Google AI Overview." },
+        { "fr": "Orchestration d'agents IA — chaînage séquentiel JSON strict, calibration de tokens par agent (2 000 → 8 000).", "en": "AI agent orchestration — strict JSON sequential chaining, per-agent token budgets (2,000 → 8,000)." },
+        { "fr": "Développement full-stack — Express.js, routing API, validation, intégration Stripe.", "en": "Full-stack development — Express.js, API routing, validation, Stripe integration." },
+        { "fr": "Accessibilité web — WCAG AA, ARIA, focus management.", "en": "Web accessibility — WCAG AA, ARIA, focus management." }
+      ]
+    }
+  ]
+}
