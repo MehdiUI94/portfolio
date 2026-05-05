@@ -1,6 +1,7 @@
 /* main.js — init + render all sections from JSON */
 
-import { initLang, getLang, onLangChange, t } from './i18n.js';
+import { initLang, onLangChange, t } from './i18n.js';
+import { injectNav, injectFooter } from './components.js';
 import {
   loadSite, loadAbout, loadExperience,
   loadSkills, loadEducation, loadProjectIndex, loadProject
@@ -35,10 +36,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 /* ---- Master render ---- */
 function renderAll(site, about, experience, skills, education, projects) {
-  const lang = getLang();
   renderNav(site);
   renderHero(site);
   renderMarquee(site);
+  renderSections();
   renderProjects(projects);
   renderAbout(about);
   renderExperience(experience);
@@ -48,27 +49,31 @@ function renderAll(site, about, experience, skills, education, projects) {
   renderFooter(site);
 }
 
+/* ---- Section headings ---- */
+function renderSections() {
+  const set = (id, fr, en) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = t({ fr, en });
+  };
+  set('sec-work-num',    '01 — Projets sélectionnés',                              '01 — Selected projects');
+  set('sec-work-h2',     'Mes projets.',                                            'My work.');
+  set('sec-work-sub',    'Trois projets dev et IA récents, trois projets design issus de mon parcours précédent.', 'Three recent dev & AI projects, three design projects from my previous career.');
+  set('sec-about-num',   '02 — À propos',                                          '02 — About');
+  set('sec-about-h2',    'À propos.',                                               'About.');
+  set('sec-about-sub',   "Cinq années de design, deux de développement, et aujourd'hui les deux réunis autour de l'IA.", 'Five years in design, two in development, and today both combined around AI.');
+  set('sec-xp-num',      '03 — Expérience',                                        '03 — Experience');
+  set('sec-xp-h2',       'Mon expérience.',                                         'My experience.');
+  set('sec-skills-num',  '04 — Compétences',                                       '04 — Skills');
+  set('sec-skills-h2',   'Compétences.',                                            'Skills.');
+  set('sec-skills-sub',  'Cinq familles, regroupées par usage.',                   'Five categories, grouped by use.');
+  set('sec-edu-num',     '05 — Formation',                                         '05 — Education');
+  set('sec-edu-h2',      'Formation.',                                              'Education.');
+  set('sec-contact-num', '06 — Travaillons ensemble',                              '06 — Let\'s work together');
+}
+
 /* ---- Nav ---- */
 function renderNav(site) {
-  const brand = document.getElementById('brand-name');
-  if (brand) brand.textContent = site.brand.name;
-  const logo = document.getElementById('brand-logo');
-  if (logo) {
-    logo.src = getBase() + site.brand.logo;
-    logo.alt = site.brand.name + ' logo';
-    logo.style.height = site.brand.logoHeight + 'px';
-  }
-  const links = {
-    'nav-work':    t({ fr: 'Mes projets', en: 'My work' }),
-    'nav-about':   t({ fr: 'À propos', en: 'About' }),
-    'nav-xp':      t({ fr: 'Mon expérience', en: 'My experience' }),
-    'nav-skills':  t({ fr: 'Compétences', en: 'Skills' }),
-    'nav-contact': t({ fr: 'Contact', en: 'Contact' })
-  };
-  Object.entries(links).forEach(([id, txt]) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = txt;
-  });
+  injectNav(site, { isIndex: true });
   updateSEO(site);
 }
 
@@ -124,9 +129,12 @@ function renderHero(site) {
 /* ---- Marquee ---- */
 function renderMarquee(site) {
   const items = (site.marquee?.items || []);
-  const html = items.map((item, i) =>
-    i === 0 ? `<b class="serif">${item}</b>` : `<i class="dot"></i> ${item.includes('IA') || item.includes('AI') || item.includes('UX') ? `<b class="serif">${item}</b>` : item} `
-  ).join(' ');
+  const html = items.map((item, i) => {
+    const text = typeof item === 'object' ? t(item) : item;
+    if (i === 0) return `<b class="serif">${text}</b>`;
+    const bold = /\b(IA|AI|UX)\b/i.test(text) || text.toLowerCase().includes('agent');
+    return `<i class="dot"></i> ${bold ? `<b class="serif">${text}</b>` : text} `;
+  }).join(' ');
   const doubled = html + ' ' + html;
   const track = document.getElementById('marquee-track');
   if (track) track.innerHTML = `<span>${doubled}</span><span>${doubled}</span>`;
@@ -238,8 +246,7 @@ function renderContact(site) {
 
 /* ---- Footer ---- */
 function renderFooter(site) {
-  const el = document.getElementById('footer-text');
-  if (el) el.textContent = t(site.footer);
+  injectFooter(site, { isIndex: true });
 }
 
 /* ---- Scroll animations ---- */

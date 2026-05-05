@@ -39,7 +39,15 @@
     ]
   },
   "marquee": {
-    "items": ["Full Stack", "Automatisation N8N, Make", "Agents IA", "Scraping", "Apps web et mobile", "Chatbots", "UX Design"]
+    "items": [
+      "Full Stack",
+      { "fr": "Automatisation N8N, Make", "en": "N8N / Make Automation" },
+      { "fr": "Agents IA", "en": "AI Agents" },
+      "Scraping",
+      { "fr": "Apps web et mobile", "en": "Web & Mobile Apps" },
+      "Chatbots",
+      "UX Design"
+    ]
   },
   "contact": {
     "title": { "fr": "Contact.", "en": "Contact." },

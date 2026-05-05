@@ -2,8 +2,8 @@
   "slug": "secourisk",
   "span": 6,
   "title": {
-    "fr": "Premiers secours en VR.",
-    "en": "First aid in VR."
+    "fr": "Secourisk.",
+    "en": "Secourisk."
   },
   "summary": {
     "fr": "Interface diégétique pour environnement VR. Hiérarchie sans regard direct, retours haptiques mappés sur la voix.",

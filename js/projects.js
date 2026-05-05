@@ -32,8 +32,8 @@ export function renderProjectCard(proj, index) {
     <div class="proj-name serif">${t(proj.title)}</div>
     <div class="proj-tag">${t(proj.summary)}</div>
     <div class="proj-meta">
-      <span>Rôle</span><b>${t(proj.role)}</b>
-      <span>Année</span><b>${proj.year}</b>
+      <span>${t({ fr: 'Rôle', en: 'Role' })}</span><b>${t(proj.role)}</b>
+      <span>${t({ fr: 'Année', en: 'Year' })}</span><b>${proj.year}</b>
       <span>Stack</span><b>${metaStack}</b>
     </div>
     ${links ? `<div class="proj-links">${links}</div>` : ''}
@@ -114,7 +114,7 @@ function renderBlock(b, lang) {
       const items = (b.items || []).map(item => `
 <div class="dl-item">
   <span class="dl-label">${L(item.label)}</span>
-  <a href="${item.src}" download="${item.filename || ''}" class="dl-btn">Télécharger ↓</a>
+  <a href="${item.src}" download="${item.filename || ''}" class="dl-btn">${t({ fr: 'Télécharger ↓', en: 'Download ↓' })}</a>
 </div>`).join('');
       return `<div class="block"><div class="block-downloads">${items}</div></div>`;
     }

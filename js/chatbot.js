@@ -1,21 +1,41 @@
-/* =============================================
-   CHATBOT WIDGET — Portfolio Mehdi Zitouni
-   Appelle le proxy local : http://localhost:3001/chat
-   ============================================= */
+/* CHATBOT WIDGET — Portfolio Mehdi Zitouni */
 
 const CHATBOT_API = 'https://portfolio-chatbot.mehdiui94.workers.dev/chat';
 
-const SUGGESTIONS = [
-  'Quelles sont tes compétences ?',
-  'Parle-moi de tes projets.',
-  'Comment te contacter ?',
-  'Quelle est ton expérience ?',
-];
+const getLang = () => { try { return localStorage.getItem('mz-lang') || 'fr'; } catch(e) { return 'fr'; } };
+
+const CB_I18N = {
+  suggestions: {
+    fr: ['Quelles sont tes compétences ?', 'Parle-moi de tes projets.', 'Comment te contacter ?', 'Quelle est ton expérience ?'],
+    en: ['What are your skills?', 'Tell me about your projects.', 'How can I reach you?', 'What is your experience?'],
+  },
+  greeting: {
+    fr: 'Bonjour ! Je suis Mehdi. Posez-moi vos questions sur mon parcours, mes projets ou mes compétences.',
+    en: "Hi! I'm Mehdi. Ask me anything about my background, projects, or skills.",
+  },
+  placeholder: {
+    fr: 'Posez votre question…',
+    en: 'Ask me anything…',
+  },
+  apiError: {
+    fr: 'Désolé, une erreur est survenue.',
+    en: 'Sorry, something went wrong.',
+  },
+  serverError: {
+    fr: 'Impossible de joindre le serveur.',
+    en: 'Unable to reach the server.',
+  },
+};
+
+function cb(key) {
+  const lang = getLang();
+  return CB_I18N[key][lang] ?? CB_I18N[key].fr;
+}
 
 function initChatbot() {
   const toggle   = document.getElementById('cb-toggle');
   const panel    = document.getElementById('cb-panel');
-  const close    = document.getElementById('cb-close');
+  const closeBtn = document.getElementById('cb-close');
   const messages = document.getElementById('cb-messages');
   const input    = document.getElementById('cb-input');
   const send     = document.getElementById('cb-send');
@@ -23,17 +43,51 @@ function initChatbot() {
 
   if (!toggle) return;
 
-  let history = [];
-  let isOpen  = false;
+  const lang = getLang();
+
+  /* ---- Placeholder & aria-labels ---- */
+  if (input) input.placeholder = cb('placeholder');
+  if (toggle) toggle.setAttribute('aria-label', lang === 'en' ? 'Open chatbot' : 'Ouvrir le chatbot');
+  if (closeBtn) closeBtn.setAttribute('aria-label', lang === 'en' ? 'Close' : 'Fermer');
 
   /* ---- Suggestions ---- */
-  SUGGESTIONS.forEach(text => {
-    const chip = document.createElement('button');
-    chip.className = 'cb-chip';
-    chip.textContent = text;
-    chip.addEventListener('click', () => sendMessage(text));
-    chips.appendChild(chip);
-  });
+  function buildChips() {
+    const currentLang = getLang();
+    const list = CB_I18N.suggestions[currentLang] ?? CB_I18N.suggestions.fr;
+    chips.innerHTML = '';
+    chips.style.display = '';
+    list.forEach(text => {
+      const chip = document.createElement('button');
+      chip.className = 'cb-chip';
+      chip.textContent = text;
+      chip.addEventListener('click', () => sendMessage(text));
+      chips.appendChild(chip);
+    });
+  }
+  buildChips();
+
+  /* Rebuild chips + update placeholder + reset history/messages when lang changes before any conversation */
+  new MutationObserver(() => {
+    const currentLang = getLang();
+    if (!conversationStarted) {
+      buildChips();
+      messages.innerHTML = '';
+      history = currentLang === 'en'
+        ? [{ role: 'system', content: 'You must respond exclusively in English for this entire conversation.' }]
+        : [];
+    }
+    if (input) input.placeholder = CB_I18N.placeholder[currentLang] ?? CB_I18N.placeholder.fr;
+    if (toggle) toggle.setAttribute('aria-label', currentLang === 'en' ? 'Open chatbot' : 'Ouvrir le chatbot');
+    if (closeBtn) closeBtn.setAttribute('aria-label', currentLang === 'en' ? 'Close' : 'Fermer');
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+
+  /* ---- History: inject language instruction for EN ---- */
+  let history = lang === 'en'
+    ? [{ role: 'system', content: 'You must respond exclusively in English for this entire conversation.' }]
+    : [];
+
+  let isOpen = false;
+  let conversationStarted = false;
 
   /* ---- Toggle ---- */
   toggle.addEventListener('click', () => {
@@ -43,15 +97,14 @@ function initChatbot() {
     if (isOpen) {
       panel.classList.add('cb-panel--open');
       input.focus();
-      if (history.length === 0) appendBotMessage(
-        'Bonjour ! Je suis Mehdi. Posez-moi vos questions sur mon parcours, mes projets ou mes compétences.'
-      );
+      const hasConversation = history.filter(m => m.role !== 'system').length > 0;
+      if (!hasConversation) appendBotMessage(cb('greeting'));
     } else {
       panel.classList.remove('cb-panel--open');
     }
   });
 
-  close.addEventListener('click', () => {
+  closeBtn.addEventListener('click', () => {
     isOpen = false;
     panel.setAttribute('aria-hidden', 'true');
     toggle.setAttribute('aria-expanded', 'false');
@@ -67,6 +120,7 @@ function initChatbot() {
   async function sendMessage(text) {
     if (!text) return;
     input.value = '';
+    conversationStarted = true;
     chips.style.display = 'none';
 
     appendUserMessage(text);
@@ -80,16 +134,16 @@ function initChatbot() {
       const res = await fetch(CHATBOT_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history }),
+        body: JSON.stringify({ messages: history, lang: getLang() }),
       });
       const data = await res.json();
-      const reply = data.reply || 'Désolé, une erreur est survenue.';
+      const reply = data.reply || cb('apiError');
       history.push({ role: 'assistant', content: reply });
       typing.remove();
       appendBotMessage(reply);
     } catch {
       typing.remove();
-      appendBotMessage('Impossible de joindre le serveur. Assurez-vous que le chatbot-server tourne en local.');
+      appendBotMessage(cb('serverError'));
     } finally {
       send.disabled = false;
       input.disabled = false;

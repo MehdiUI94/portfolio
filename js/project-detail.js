@@ -1,6 +1,7 @@
 /* project-detail.js — render a single project detail page */
 
-import { initLang, getLang, setLang, onLangChange, t } from './i18n.js';
+import { initLang, getLang, onLangChange, t } from './i18n.js';
+import { injectNav, injectFooter } from './components.js';
 import { loadSite, loadProject, loadProjectIndex } from './content-loader.js';
 import { renderDetailCover, renderBlocks, initLightbox } from './projects.js';
 
@@ -19,11 +20,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       loadProjectIndex()
     ]);
 
-    renderNav(site);
+    injectNav(site, { isIndex: false });
+    injectFooter(site, { isIndex: false });
     renderDetail(proj);
 
     onLangChange(() => {
-      renderNav(site);
+      injectNav(site, { isIndex: false });
+      injectFooter(site, { isIndex: false });
       renderDetail(proj);
       initLightbox();
       document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
@@ -34,16 +37,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch (err) {
     console.error('Project load error:', err);
     document.getElementById('detail-root').innerHTML =
-      `<div class="wrap" style="padding:80px 0;color:var(--muted);font-family:'JetBrains Mono',monospace">Projet introuvable.</div>`;
+      `<div class="wrap" style="padding:80px 0;color:var(--muted);font-family:'JetBrains Mono',monospace">${t({ fr: 'Projet introuvable.', en: 'Project not found.' })}</div>`;
   }
 });
-
-function renderNav(site) {
-  const logo = document.getElementById('brand-logo');
-  if (logo) { logo.src = site.brand.logo; logo.alt = site.brand.name + ' logo'; }
-  const name = document.getElementById('brand-name');
-  if (name) name.textContent = site.brand.name;
-}
 
 function renderDetail(proj) {
   const lang = getLang();
@@ -64,7 +60,7 @@ function renderDetail(proj) {
   root.innerHTML = `
 <div class="wrap">
   <div class="detail-hero">
-    <a href="index.html#work" class="detail-back" aria-label="Retour aux projets">← Tous les projets</a>
+    <a href="index.html#work" class="detail-back" aria-label="${t({ fr: 'Retour aux projets', en: 'Back to projects' })}">← ${t({ fr: 'Tous les projets', en: 'All projects' })}</a>
 
     ${renderDetailCover(proj)}
 

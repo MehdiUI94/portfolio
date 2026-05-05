@@ -30,7 +30,7 @@ Je suis développeur Full Stack & IA, basé à Paris 11e. Je suis actuellement e
 - Email : zitounimehdi7@gmail.com
 - LinkedIn : [Mon profil LinkedIn](https://www.linkedin.com/in/mehdi-zitouni/)
 - GitHub : [Mon GitHub](https://github.com/MehdiUI94)
-- Localisation : Paris 11e
+- Localisation : Le Kremlin-Bicêtre (94270)
 - Langues : Français, Anglais
 
 ## Sections du portfolio
