@@ -17,7 +17,7 @@
     "gradient": "linear-gradient(135deg,#020e1f 0%,#003566 55%,#0077b6 100%)",
     "color": "#f6f0e4",
     "lines": ["Auto-École", "Saint-Genès"],
-    "image": "assets/projects/auto-ecole-saint-genes/Render-1.png"
+    "image": "assets/projects/auto-ecole-saint-genes/assets/Render-1.png"
   },
   "links": [],
   "blocks": [
@@ -34,7 +34,7 @@
     },
     {
       "type": "image",
-      "src": "assets/projects/auto-ecole-saint-genes/project-card.svg",
+      "src": "assets/projects/auto-ecole-saint-genes/assets/project-card.svg",
       "alt": { "fr": "Diagnostic SEO avant/après — Auto-École Saint-Genès", "en": "SEO before/after diagnostic — Auto-École Saint-Genès" },
       "width": "wide"
     },
@@ -51,7 +51,7 @@
     },
     {
       "type": "image",
-      "src": "assets/projects/auto-ecole-saint-genes/pipeline-agents.svg",
+      "src": "assets/projects/auto-ecole-saint-genes/assets/pipeline-agents.svg",
       "alt": { "fr": "Pipeline 4 agents IA — Audit → Contenu → Design → Code", "en": "4-agent AI pipeline — Audit → Content → Design → Code" },
       "width": "wide"
     },
@@ -84,6 +84,85 @@
         { "fr": "WCAG AA — contrastes 4.5:1, skip-links, ARIA landmarks, focus visible sur tous les éléments interactifs.", "en": "WCAG AA — 4.5:1 contrast, skip-links, ARIA landmarks, focus visible on all interactive elements." },
         { "fr": "3 routes API : contact, inscription, paiement Stripe (graceful degradation sans clé).", "en": "3 API routes: contact, registration, Stripe payment (graceful degradation without key)." },
         { "fr": "Flat-file sans base de données — contacts et inscriptions persistent en JSON local, déployable sur tout hébergeur.", "en": "Flat-file without a database — contacts and registrations persist in local JSON, deployable on any host." }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "fr": "Refonte visuelle — Avant / Après",
+      "en": "Visual redesign — Before / After"
+    },
+    {
+      "type": "paragraph",
+      "fr": "Comparaison page par page entre l'ancien site et la nouvelle version produite par le pipeline agent. Cliquer sur une image pour l'agrandir.",
+      "en": "Page-by-page comparison between the old site and the new version produced by the agent pipeline. Click an image to enlarge."
+    },
+    {
+      "type": "comparison",
+      "label": { "fr": "Page d'accueil", "en": "Homepage" },
+      "before": {
+        "src": "assets/projects/auto-ecole-saint-genes/assets/avant-home.png",
+        "alt": { "fr": "Ancienne page d'accueil", "en": "Old homepage" }
+      },
+      "after": [
+        {
+          "src": "assets/projects/auto-ecole-saint-genes/assets/apres-home.png",
+          "alt": { "fr": "Nouvelle page d'accueil", "en": "New homepage" }
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "label": { "fr": "Formation Permis B", "en": "Driving licence page" },
+      "before": {
+        "src": "assets/projects/auto-ecole-saint-genes/assets/avant-permisB.png",
+        "alt": { "fr": "Ancienne page Permis B", "en": "Old driving licence page" }
+      },
+      "after": [
+        {
+          "src": "assets/projects/auto-ecole-saint-genes/assets/apres-permisB.png",
+          "alt": { "fr": "Nouvelle page Permis B", "en": "New driving licence page" }
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "label": { "fr": "Préinscription — formulaire multi-étapes", "en": "Pre-registration — multi-step form" },
+      "note": {
+        "fr": "L'ancien site propose un simple formulaire unique. Le nouveau guide l'utilisateur en 3 étapes distinctes.",
+        "en": "The old site had a single basic form. The new site guides users through 3 distinct steps."
+      },
+      "before": {
+        "src": "assets/projects/auto-ecole-saint-genes/assets/avant-preinscription.png",
+        "alt": { "fr": "Ancienne préinscription — formulaire unique", "en": "Old pre-registration — single form" }
+      },
+      "after": [
+        {
+          "src": "assets/projects/auto-ecole-saint-genes/assets/apres-preinscription1.png",
+          "alt": { "fr": "Nouvelle préinscription — étape 1", "en": "New pre-registration — step 1" }
+        },
+        {
+          "src": "assets/projects/auto-ecole-saint-genes/assets/apres-preinscription2.png",
+          "alt": { "fr": "Nouvelle préinscription — étape 2", "en": "New pre-registration — step 2" }
+        },
+        {
+          "src": "assets/projects/auto-ecole-saint-genes/assets/apres-preinscription3.png",
+          "alt": { "fr": "Nouvelle préinscription — étape 3", "en": "New pre-registration — step 3" }
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "label": { "fr": "Politique de confidentialité", "en": "Privacy policy" },
+      "before": {
+        "src": "assets/projects/auto-ecole-saint-genes/assets/avant-politique-confidentialite.png",
+        "alt": { "fr": "Ancienne politique de confidentialité", "en": "Old privacy policy" }
+      },
+      "after": [
+        {
+          "src": "assets/projects/auto-ecole-saint-genes/assets/apres-politique-confidentialite.png",
+          "alt": { "fr": "Nouvelle politique de confidentialité", "en": "New privacy policy" }
+        }
       ]
     },
     {

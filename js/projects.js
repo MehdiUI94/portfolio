@@ -122,6 +122,38 @@ function renderBlock(b, lang) {
       const sz = b.size || 'md';
       return `<div class="block-spacer-${sz}"></div>`;
     }
+    case 'comparison': {
+      const beforeLabel = lang === 'en' ? 'Before' : 'Avant';
+      const afterLabel  = lang === 'en' ? 'After'  : 'Après';
+      const pageLabel   = b.label ? `<div class="comp-page-label">${L(b.label)}</div>` : '';
+      const noteHtml    = b.note  ? `<p class="comp-note">${L(b.note)}</p>` : '';
+      const beforeImg   = b.before
+        ? `<img src="${b.before.src}" alt="${L(b.before.alt) || ''}" loading="lazy">`
+        : '';
+      const multiStep   = (b.after || []).length > 1;
+      const afterImgs   = (b.after || []).map((img, i) => {
+        const step = multiStep
+          ? `<span class="comp-step">${lang === 'en' ? `Step ${i+1}/${b.after.length}` : `Étape ${i+1}/${b.after.length}`}</span>`
+          : '';
+        return `<div class="comp-after-item">${step}<img src="${img.src}" alt="${L(img.alt) || ''}" loading="lazy"></div>`;
+      }).join('');
+      return `<div class="block">
+  <div class="block-comparison">
+    ${pageLabel}
+    ${noteHtml}
+    <div class="comp-grid">
+      <div class="comp-col comp-col--before">
+        <div class="comp-badge comp-badge--before">${beforeLabel}</div>
+        ${beforeImg}
+      </div>
+      <div class="comp-col comp-col--after">
+        <div class="comp-badge comp-badge--after">${afterLabel}</div>
+        ${afterImgs}
+      </div>
+    </div>
+  </div>
+</div>`;
+    }
     default:
       return '';
   }
@@ -134,7 +166,7 @@ export function initLightbox() {
   const lbImg = lb.querySelector('img');
   const lbClose = lb.querySelector('.lightbox-close');
 
-  document.querySelectorAll('.block-gallery img, .block-img img').forEach(img => {
+  document.querySelectorAll('.block-gallery img, .block-img img, .block-comparison img').forEach(img => {
     img.addEventListener('click', () => {
       lbImg.src = img.src;
       lbImg.alt = img.alt;
