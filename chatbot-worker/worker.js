@@ -149,8 +149,8 @@ Si on te pose une question hors sujet (ni parcours, ni projets, ni compétences,
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 };
 
 // Validation email
@@ -218,19 +218,135 @@ async function sendBookingEmail(booking, env) {
   });
 }
 
+// ── Supabase helpers ──────────────────────────────────────────────────────────
+
+function sbHeaders(env) {
+  return {
+    'apikey': env.SUPABASE_SERVICE_KEY,
+    'Authorization': `Bearer ${env.SUPABASE_SERVICE_KEY}`,
+    'Content-Type': 'application/json',
+    'Prefer': 'return=minimal',
+  };
+}
+
+async function logConversation(payload, env) {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_KEY) return;
+  try {
+    await fetch(`${env.SUPABASE_URL}/rest/v1/chat_messages`, {
+      method: 'POST', headers: sbHeaders(env), body: JSON.stringify(payload),
+    });
+  } catch { /* non-blocking */ }
+}
+
+async function handleTrack(request, env) {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_KEY) {
+    return new Response('ok', { headers: CORS_HEADERS });
+  }
+  try {
+    const body = await request.json();
+    await fetch(`${env.SUPABASE_URL}/rest/v1/page_views`, {
+      method: 'POST', headers: sbHeaders(env), body: JSON.stringify({
+        session_id: body.session_id || 'unknown',
+        page: body.page || '/',
+        referrer: body.referrer || '',
+        country: request.cf?.country || '',
+      }),
+    });
+  } catch { /* non-blocking */ }
+  return new Response('ok', { headers: CORS_HEADERS });
+}
+
+async function handleAnalytics(request, env) {
+  const url = new URL(request.url);
+  const key = url.searchParams.get('key');
+  if (!env.ANALYTICS_KEY || key !== env.ANALYTICS_KEY) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401, headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+    });
+  }
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_KEY) {
+    return new Response(JSON.stringify({ error: 'Supabase not configured' }), {
+      status: 503, headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+    });
+  }
+
+  const days = parseInt(url.searchParams.get('days') || '30', 10);
+  const since = new Date(Date.now() - days * 86400000).toISOString();
+  const readHeaders = {
+    'apikey': env.SUPABASE_SERVICE_KEY,
+    'Authorization': `Bearer ${env.SUPABASE_SERVICE_KEY}`,
+  };
+
+  const [msgRes, pvRes] = await Promise.all([
+    fetch(`${env.SUPABASE_URL}/rest/v1/chat_messages?created_at=gte.${since}&order=created_at.desc&limit=2000`, { headers: readHeaders }),
+    fetch(`${env.SUPABASE_URL}/rest/v1/page_views?created_at=gte.${since}&order=created_at.desc&limit=5000`, { headers: readHeaders }),
+  ]);
+
+  const [msgs, pvs] = await Promise.all([msgRes.json(), pvRes.json()]);
+
+  // Aggregate messages per day
+  const msgByDay = {};
+  const pvByDay = {};
+  const pageCount = {};
+  let bookings = 0, langFr = 0, langEn = 0;
+
+  for (const m of (Array.isArray(msgs) ? msgs : [])) {
+    const d = m.created_at?.slice(0, 10) || '';
+    msgByDay[d] = (msgByDay[d] || 0) + 1;
+    if (m.booking_confirmed) bookings++;
+    if (m.lang === 'en') langEn++; else langFr++;
+  }
+  for (const p of (Array.isArray(pvs) ? pvs : [])) {
+    const d = p.created_at?.slice(0, 10) || '';
+    pvByDay[d] = (pvByDay[d] || 0) + 1;
+    pageCount[p.page] = (pageCount[p.page] || 0) + 1;
+  }
+
+  // Build sessions from messages
+  const sessionsMap = {};
+  for (const m of (Array.isArray(msgs) ? msgs : [])) {
+    if (!sessionsMap[m.session_id]) {
+      sessionsMap[m.session_id] = { session_id: m.session_id, started_at: m.created_at, lang: m.lang, booking_confirmed: false, messages: [] };
+    }
+    sessionsMap[m.session_id].messages.push({ user: m.user_message, bot: m.bot_reply, ts: m.created_at, booking_confirmed: m.booking_confirmed });
+    if (m.booking_confirmed) sessionsMap[m.session_id].booking_confirmed = true;
+  }
+  const sessions = Object.values(sessionsMap).sort((a, b) => b.started_at > a.started_at ? 1 : -1);
+
+  const topPages = Object.entries(pageCount).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([page, count]) => ({ page, count }));
+
+  const totalMsgs = Array.isArray(msgs) ? msgs.length : 0;
+  const totalPvs  = Array.isArray(pvs)  ? pvs.length  : 0;
+
+  return new Response(JSON.stringify({
+    summary: { total_sessions: sessions.length, total_messages: totalMsgs, bookings, lang_fr: langFr, lang_en: langEn, page_views: totalPvs },
+    messages_per_day: Object.entries(msgByDay).sort().map(([date, count]) => ({ date, count })),
+    pageviews_per_day: Object.entries(pvByDay).sort().map(([date, count]) => ({ date, count })),
+    top_pages: topPages,
+    sessions,
+  }), { headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' } });
+}
+
+// ── Main handler ──────────────────────────────────────────────────────────────
+
 export default {
   async fetch(request, env) {
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: CORS_HEADERS });
     }
 
+    const { pathname } = new URL(request.url);
+
+    if (pathname === '/analytics') return handleAnalytics(request, env);
+    if (pathname === '/track' && request.method === 'POST') return handleTrack(request, env);
+
     if (request.method !== 'POST') {
       return new Response('Method not allowed', { status: 405 });
     }
 
-    let messages, lang;
+    let messages, lang, session_id;
     try {
-      ({ messages, lang } = await request.json());
+      ({ messages, lang, session_id } = await request.json());
     } catch {
       return new Response(JSON.stringify({ error: 'JSON invalide' }), {
         status: 400, headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
@@ -305,6 +421,16 @@ export default {
         // JSON malformé — on affiche quand même le texte de confirmation de l'IA
       }
     }
+
+    // Log conversation to Supabase (fire-and-forget)
+    const userMsg = messages.filter(m => m.role === 'user').pop()?.content || '';
+    logConversation({
+      session_id: session_id || 'unknown',
+      lang: locale,
+      user_message: userMsg,
+      bot_reply: reply,
+      booking_confirmed: bookingConfirmed,
+    }, env);
 
     return new Response(JSON.stringify({ reply, bookingConfirmed, choices }), {
       headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },

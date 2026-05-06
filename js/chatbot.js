@@ -2,6 +2,14 @@
 
 const CHATBOT_API = 'https://portfolio-chatbot.mehdiui94.workers.dev/chat';
 
+const SESSION_ID = (() => {
+  try {
+    let id = sessionStorage.getItem('mz-session');
+    if (!id) { id = crypto.randomUUID(); sessionStorage.setItem('mz-session', id); }
+    return id;
+  } catch { return 'unknown'; }
+})();
+
 const getLang = () => { try { return localStorage.getItem('mz-lang') || 'fr'; } catch(e) { return 'fr'; } };
 
 const CB_I18N = {
@@ -198,7 +206,7 @@ function initChatbot() {
       const res = await fetch(CHATBOT_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history, lang: getLang() }),
+        body: JSON.stringify({ messages: history, lang: getLang(), session_id: SESSION_ID }),
       });
       const data = await res.json();
       const reply = data.reply || cb('apiError');
