@@ -39,7 +39,9 @@
       "Bash(Select-Object FullName, PSIsContainer)",
       "Bash(Get-Content *)",
       "Bash(Get-ChildItem -Path \"C:\\\\Cours\\\\eugenia school\\\\portfolio\" -Recurse -File)",
-      "Bash(Select-Object FullName)"
+      "Bash(Select-Object FullName)",
+      "Bash(python3 -c ' *)",
+      "Bash(python -c ' *)"
     ]
   }
 }
