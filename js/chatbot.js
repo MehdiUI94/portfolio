@@ -6,12 +6,12 @@ const getLang = () => { try { return localStorage.getItem('mz-lang') || 'fr'; } 
 
 const CB_I18N = {
   suggestions: {
-    fr: ['Quelles sont tes compétences ?', 'Parle-moi de tes projets.', 'Comment te contacter ?', 'Quelle est ton expérience ?'],
-    en: ['What are your skills?', 'Tell me about your projects.', 'How can I reach you?', 'What is your experience?'],
+    fr: ['Quelles sont tes compétences ?', 'Parle-moi de tes projets.', 'Réserver un entretien', 'Quelle est ton expérience ?'],
+    en: ['What are your skills?', 'Tell me about your projects.', 'Book an interview', 'What is your experience?'],
   },
   greeting: {
-    fr: 'Bonjour ! Je suis Mehdi. Posez-moi vos questions sur mon parcours, mes projets ou mes compétences.',
-    en: "Hi! I'm Mehdi. Ask me anything about my background, projects, or skills.",
+    fr: 'Bonjour ! Je suis Mehdi. Posez-moi vos questions sur mon parcours, mes projets ou mes compétences — ou réservez un entretien.',
+    en: "Hi! I'm Mehdi. Ask me anything about my background, projects, or skills — or book an interview.",
   },
   placeholder: {
     fr: 'Posez votre question…',
@@ -24,6 +24,10 @@ const CB_I18N = {
   serverError: {
     fr: 'Impossible de joindre le serveur.',
     en: 'Unable to reach the server.',
+  },
+  bookingConfirmed: {
+    fr: '✓ Demande envoyée',
+    en: '✓ Request sent',
   },
 };
 
@@ -153,8 +157,32 @@ function initChatbot() {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(input.value.trim()); }
   });
 
+  function clearInlineChoices() {
+    const existing = messages.querySelector('.cb-inline-choices');
+    if (existing) existing.remove();
+  }
+
+  function showInlineChoices(choiceList) {
+    clearInlineChoices();
+    const container = document.createElement('div');
+    container.className = 'cb-inline-choices';
+    choiceList.forEach(choice => {
+      const btn = document.createElement('button');
+      btn.className = 'cb-chip cb-inline-chip';
+      btn.textContent = choice;
+      btn.addEventListener('click', () => {
+        container.remove();
+        sendMessage(choice);
+      });
+      container.appendChild(btn);
+    });
+    messages.appendChild(container);
+    scrollBottom();
+  }
+
   async function sendMessage(text) {
     if (!text) return;
+    clearInlineChoices();
     input.value = '';
     conversationStarted = true;
     chips.style.display = 'none';
@@ -176,7 +204,7 @@ function initChatbot() {
       const reply = data.reply || cb('apiError');
       history.push({ role: 'assistant', content: reply });
       typing.remove();
-      appendBotMessage(reply);
+      appendBotMessage(reply, data.bookingConfirmed, data.choices);
     } catch {
       typing.remove();
       appendBotMessage(cb('serverError'));
@@ -204,10 +232,16 @@ function initChatbot() {
       );
   }
 
-  function appendBotMessage(text) {
+  function appendBotMessage(text, bookingConfirmed = false, choices = null) {
     const el = document.createElement('div');
     el.className = 'cb-msg cb-msg--bot';
     el.innerHTML = parseLinks(text);
+    if (bookingConfirmed) {
+      const badge = document.createElement('span');
+      badge.className = 'cb-booking-badge';
+      badge.textContent = cb('bookingConfirmed');
+      el.appendChild(badge);
+    }
     el.querySelectorAll('a.cb-internal-link').forEach(a => {
       a.addEventListener('click', () => {
         isOpen = false;
@@ -217,6 +251,7 @@ function initChatbot() {
       });
     });
     messages.appendChild(el);
+    if (choices && choices.length) showInlineChoices(choices);
     scrollBottom();
   }
 

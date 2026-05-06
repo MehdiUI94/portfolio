@@ -1,7 +1,50 @@
-const SYSTEM_PROMPT = `Tu es Mehdi Zitouni. Tu parles à la première personne, de façon concise, chaleureuse et professionnelle. Tu réponds en français par défaut (en anglais si on te parle en anglais). Tu ne réponds qu'aux questions sur ton parcours, tes projets et tes compétences. Tu n'es pas un assistant généraliste.
+function getWorkingSlots(count = 4) {
+  // Jours fériés français fixes (MM-DD)
+  const HOLIDAYS = new Set(['01-01','05-01','05-08','07-14','08-15','11-01','11-11','12-25']);
+  const FR_DAYS   = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+  const FR_MONTHS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  const EN_DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const EN_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const TIMES = ['9h00','10h30','14h00','15h30'];
+
+  const slots = [];
+  const d = new Date();
+  d.setDate(d.getDate() + 1); // demain au plus tôt
+  let t = 0;
+
+  while (slots.length < count) {
+    const dow  = d.getDay();
+    const mmdd = `${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    if (dow >= 1 && dow <= 5 && !HOLIDAYS.has(mmdd)) {
+      const day = d.getDate(), month = d.getMonth(), year = d.getFullYear(), time = TIMES[t % 4];
+      slots.push({
+        fr: `${FR_DAYS[dow]} ${day} ${FR_MONTHS[month]} ${year} à ${time}`,
+        en: `${EN_DAYS[dow]}, ${EN_MONTHS[month]} ${day}, ${year} at ${time}`,
+      });
+      t++;
+    }
+    d.setDate(d.getDate() + 1);
+  }
+  return slots;
+}
+
+function buildSystemPrompt() {
+  const now = new Date();
+  const dateStr   = now.toLocaleDateString('fr-FR', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  const dateStrEn = now.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  const slots = getWorkingSlots(4);
+  const slotsFr = slots.map(s => `"${s.fr}"`).join(', ');
+  const slotsEn = slots.map(s => `"${s.en}"`).join(', ');
+  const choicesFrJson = JSON.stringify([...slots.map(s => s.fr), '📝 Proposer un autre créneau']);
+  const choicesEnJson = JSON.stringify([...slots.map(s => s.en), '📝 Suggest another time']);
+
+  return `Tu es Mehdi Zitouni. Tu parles à la première personne, de façon chaleureuse et professionnelle. Tu réponds en français par défaut (en anglais si on te parle en anglais). Tu es spécialisé sur ton parcours, tes projets et tes compétences, ET tu gères les demandes de prise de rendez-vous / entretien. Tu n'es pas un assistant généraliste.
+
+## Date du jour
+Aujourd'hui : ${dateStr} (${dateStrEn}).
 
 ## Qui je suis
-Je suis développeur Full Stack & IA, basé à Paris 11e. Je suis actuellement en alternance chez SmartBack (2025–2027) tout en suivant un MSc AI Applied to Business à Eugenia School (Paris 10).
+Je suis développeur Full Stack & IA, basé à Paris. Je suis actuellement en alternance chez SmartBack (2025–2027) tout en suivant un MSc AI Applied to Business à Eugenia School (Paris 10).
 
 ## Mon parcours
 - 2025–2027 : Développeur Full Stack, Automatisation IA — SmartBack (alternance) + MSc AI Applied to Business — Eugenia School
@@ -41,19 +84,139 @@ Quand quelqu'un demande à voir mes projets, mon expérience, mes compétences o
 - Compétences → [mes compétences](#skills)
 - Contact → [me contacter](#contact)
 
-## Instructions de formatage
-- Pour les liens externes, utilise la syntaxe markdown : [texte](https://url)
-- Pour les sections du portfolio, utilise : [texte](#section)
-- N'utilise jamais de balises HTML brutes
-- Réponds toujours de façon concise (3-5 phrases max)
+## Prise de rendez-vous / Interview Booking
+Si quelqu'un souhaite planifier un entretien, un appel ou une rencontre, suis exactement ce processus en 4 étapes :
 
-Si on te pose une question hors sujet, réponds poliment que tu es là uniquement pour parler de ton parcours et tes projets.`;
+**ÉTAPE 1 — Informations de base**
+Pose ces deux questions, une à la fois :
+a. Prénom et nom complet
+b. Adresse email professionnelle (vérifie qu'elle contient un @ et un domaine valide ; si elle semble incorrecte, repose la question)
+
+**ÉTAPE 2 — Proposition de créneaux**
+Utilise EXACTEMENT ces créneaux pré-calculés (ne recalcule jamais les dates toi-même) :
+- Si la conversation est en FRANÇAIS, propose : ${slotsFr}
+  Puis génère ce marqueur CHOICES exact :
+  [[CHOICES:${choicesFrJson}]]
+- Si la conversation est en ANGLAIS, propose : ${slotsEn}
+  Puis génère ce marqueur CHOICES exact :
+  [[CHOICES:${choicesEnJson}]]
+
+Présente les créneaux avec une courte phrase d'introduction, puis génère le marqueur CHOICES immédiatement après.
+
+RÈGLE ABSOLUE sur les créneaux libres :
+- Si l'utilisateur a cliqué "📝 Proposer un autre créneau" / "📝 Suggest another time" ET propose ensuite n'importe quel créneau (ex : "8 mai 16h", "next Friday 3pm", "lundi prochain matin"), ACCEPTE-LE IMMÉDIATEMENT tel quel et passe directement à l'ÉTAPE 3.
+- Ne propose JAMAIS d'alternatives à ce moment-là. Ne mentionne JAMAIS les créneaux pré-calculés. N'émets aucune réserve sur la date choisie.
+- Si le créneau est flou (ex : "la semaine prochaine"), demande juste le jour et l'heure précis, puis accepte.
+
+**ÉTAPE 3 — Récapitulatif obligatoire**
+Une fois le créneau choisi (proposé ou saisi manuellement), affiche TOUJOURS le récapitulatif dans la bonne langue :
+
+Si FRANÇAIS :
+📋 Récapitulatif de ta demande :
+• Nom : [nom complet]
+• Email : [email]
+• Créneau : [date et heure]
+• Message : [message ou "aucun"]
+Puis génère : [[CHOICES:["✅ Confirmer","✏️ Modifier","❌ Annuler"]]]
+
+Si ANGLAIS :
+📋 Summary of your request:
+• Name: [full name]
+• Email: [email]
+• Slot: [date and time]
+• Message: [message or "none"]
+Puis génère : [[CHOICES:["✅ Confirm","✏️ Edit","❌ Cancel"]]]
+
+**ÉTAPE 4 — Traitement du choix**
+- Confirmer / Confirm → dis que la demande a été transmise à Mehdi, qu'il prendra contact pour valider.
+  Insère EXACTEMENT sur une nouvelle ligne :
+  [[BOOKING:{"name":"NOM","email":"EMAIL","date":"DATE","message":"MESSAGE OU VIDE"}]]
+- Modifier / Edit → demande quel champ corriger, mets-le à jour, réaffiche le récapitulatif complet + marqueur CHOICES.
+- Annuler / Cancel → confirme l'annulation avec bienveillance. Aucun marqueur.
+
+Règles absolues :
+- N'insère JAMAIS [[BOOKING]] avant la confirmation explicite de l'utilisateur.
+- N'utilise JAMAIS "programmé", "confirmé" ou "réservé".
+- Ne mentionne jamais les marqueurs à l'utilisateur.
+- Les marqueurs utilisent toujours des guillemets doubles JSON valides, sans virgule finale.
+
+## Instructions de formatage
+- Pour les liens externes : [texte](https://url) — Pour les sections du portfolio : [texte](#section)
+- N'utilise jamais de balises HTML brutes
+- Sois concis pour les réponses générales (3-5 phrases max), mais prends l'espace nécessaire pour le récapitulatif.
+
+Si on te pose une question hors sujet (ni parcours, ni projets, ni compétences, ni rendez-vous), réponds poliment que tu es là uniquement pour parler du profil professionnel de Mehdi ou organiser un entretien.`; }
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
 };
+
+// Validation email
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+const DISPOSABLE_DOMAINS = new Set([
+  'mailinator.com','guerrillamail.com','tempmail.com','throwam.com','yopmail.com',
+  'sharklasers.com','guerrillamailblock.com','grr.la','guerrillamail.info',
+  'spam4.me','trashmail.com','trashmail.me','fakeinbox.com','maildrop.cc',
+  'dispostable.com','throwam.com','mailnull.com','spamgourmet.com','10minutemail.com',
+  'temp-mail.org','discard.email','mailnesia.com','spamfree24.org',
+]);
+
+function isValidEmail(email) {
+  if (!EMAIL_REGEX.test(email)) return false;
+  const domain = email.split('@')[1].toLowerCase();
+  return !DISPOSABLE_DOMAINS.has(domain);
+}
+
+const BOOKING_ERRORS = {
+  invalid_email: {
+    fr: "L'adresse email fournie ne semble pas valide ou appartient à un domaine temporaire. Pourrais-tu donner une adresse professionnelle valide (ex : prenom@gmail.com) ?",
+    en: "The email address provided doesn't look valid or uses a temporary domain. Could you provide a valid professional address (e.g. firstname@gmail.com)?",
+  },
+  invalid_name: {
+    fr: "Le nom fourni semble incomplet. Pourrais-tu indiquer ton prénom et nom complets ?",
+    en: "The name provided seems incomplete. Could you give your full first and last name?",
+  },
+  invalid_date: {
+    fr: "La date ou le créneau horaire n'est pas précisé. Quel jour et quelle heure te conviendraient ?",
+    en: "The date or time slot isn't specified. What day and time would work for you?",
+  },
+};
+
+async function sendBookingEmail(booking, env) {
+  if (!env.RESEND_API_KEY) return;
+
+  const html = `
+    <div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#1a1a2e">
+      <h2 style="color:#c86bfe;margin-bottom:4px">📅 Nouvelle demande d'entretien</h2>
+      <p style="color:#666;margin-top:0;font-size:14px">Reçue via le chatbot du portfolio</p>
+      <hr style="border:none;border-top:1px solid #eee;margin:20px 0">
+      <table style="width:100%;border-collapse:collapse;font-size:15px">
+        <tr><td style="padding:8px 0;color:#888;width:140px">Nom</td><td style="padding:8px 0;font-weight:600">${booking.name}</td></tr>
+        <tr><td style="padding:8px 0;color:#888">Email</td><td style="padding:8px 0"><a href="mailto:${booking.email}" style="color:#c86bfe">${booking.email}</a></td></tr>
+        <tr><td style="padding:8px 0;color:#888">Créneau souhaité</td><td style="padding:8px 0;font-weight:600">${booking.date}</td></tr>
+        ${booking.message ? `<tr><td style="padding:8px 0;color:#888;vertical-align:top">Message</td><td style="padding:8px 0">${booking.message}</td></tr>` : ''}
+      </table>
+      <hr style="border:none;border-top:1px solid #eee;margin:20px 0">
+      <p style="font-size:13px;color:#aaa">Réponds directement à cet email ou contacte <a href="mailto:${booking.email}" style="color:#c86bfe">${booking.email}</a> pour confirmer le créneau.</p>
+    </div>`;
+
+  await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: 'Portfolio Chatbot <onboarding@resend.dev>',
+      to: ['zitounimehdi7@gmail.com'],
+      subject: `📅 Entretien demandé — ${booking.name}`,
+      html,
+    }),
+  });
+}
 
 export default {
   async fetch(request, env) {
@@ -65,14 +228,15 @@ export default {
       return new Response('Method not allowed', { status: 405 });
     }
 
-    let messages;
+    let messages, lang;
     try {
-      ({ messages } = await request.json());
+      ({ messages, lang } = await request.json());
     } catch {
       return new Response(JSON.stringify({ error: 'JSON invalide' }), {
         status: 400, headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
       });
     }
+    const locale = lang === 'en' ? 'en' : 'fr';
 
     if (!Array.isArray(messages) || messages.length === 0) {
       return new Response(JSON.stringify({ error: 'messages requis' }), {
@@ -88,8 +252,8 @@ export default {
       },
       body: JSON.stringify({
         model: 'gpt-4o-mini',
-        messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages],
-        max_tokens: 500,
+        messages: [{ role: 'system', content: buildSystemPrompt() }, ...messages],
+        max_tokens: 800,
         temperature: 0.7,
       }),
     });
@@ -102,9 +266,47 @@ export default {
       });
     }
 
-    const reply = data.choices?.[0]?.message?.content || 'Désolé, une erreur est survenue.';
+    const rawReply = data.choices?.[0]?.message?.content || 'Désolé, une erreur est survenue.';
 
-    return new Response(JSON.stringify({ reply }), {
+    // Strip [[CHOICES:[...]]] and extract options
+    let choices = null;
+    const choicesMatch = rawReply.match(/\[\[CHOICES:(\[[\s\S]*?\])\]\]/);
+    if (choicesMatch) {
+      try { choices = JSON.parse(choicesMatch[1]); } catch { /* malformed, ignore */ }
+    }
+    const strippedReply = rawReply.replace(/\n*\[\[CHOICES:\[[\s\S]*?\]\]\]/, '').trim();
+
+    // Detect and process booking marker
+    const bookingMatch = strippedReply.match(/\[\[BOOKING:([\s\S]*?)\]\]/);
+    let bookingConfirmed = false;
+    let reply = strippedReply;
+
+    if (bookingMatch) {
+      reply = strippedReply.replace(/\n*\[\[BOOKING:[\s\S]*?\]\]/, '').trim();
+      try {
+        const booking = JSON.parse(bookingMatch[1]);
+
+        // Validation
+        const name = (booking.name || '').trim();
+        const email = (booking.email || '').trim();
+        const date = (booking.date || '').trim();
+
+        if (name.length < 2) {
+          reply = BOOKING_ERRORS.invalid_name[locale];
+        } else if (!isValidEmail(email)) {
+          reply = BOOKING_ERRORS.invalid_email[locale];
+        } else if (date.length < 3) {
+          reply = BOOKING_ERRORS.invalid_date[locale];
+        } else {
+          await sendBookingEmail({ name, email, date, message: booking.message || '' }, env);
+          bookingConfirmed = true;
+        }
+      } catch {
+        // JSON malformé — on affiche quand même le texte de confirmation de l'IA
+      }
+    }
+
+    return new Response(JSON.stringify({ reply, bookingConfirmed, choices }), {
       headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
     });
   },
