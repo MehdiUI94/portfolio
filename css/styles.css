@@ -191,7 +191,7 @@ h1.head em {
 /* ============================================
    SECTIONS
    ============================================ */
-section { padding: 120px 0; }
+section { padding: 64px 0; }
 .sec-head {
   display: flex; align-items: end; justify-content: space-between;
   gap: 24px; margin-bottom: 64px;
@@ -292,7 +292,7 @@ section { padding: 120px 0; }
 .jt-item::before {
   content: ""; position: absolute; left: 154px; top: 24px;
   width: 13px; height: 13px; border-radius: 50%;
-  background: var(--ink); border: 2px solid var(--orange);
+  background: var(--ink); border: 2px solid #C86BFE;
 }
 @media (max-width: 720px) {
   .jt-item { grid-template-columns: 1fr; gap: 6px; padding-left: 32px; }
@@ -311,7 +311,7 @@ section { padding: 120px 0; }
 .tl:last-child { border-bottom: 1px solid var(--line); }
 .tl-period { font-family: 'Rajdhani', system-ui, sans-serif; font-size: 13px; color: var(--muted); letter-spacing: .06em; }
 .tl-role { font-family: 'Fraunces', serif; font-size: 24px; line-height: 1.2; margin-bottom: 6px; }
-.tl-org { color: var(--orange); font-weight: 600; margin-bottom: 14px; font-size: 15px; letter-spacing: .02em; }
+.tl-org { color: #C86BFE; font-weight: 600; margin-bottom: 14px; font-size: 15px; letter-spacing: .02em; }
 .tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; color: var(--muted); font-size: 16px; }
 .tl-bullets li { padding-left: 18px; position: relative; }
 .tl-bullets li::before { content: ""; position: absolute; left: 0; top: 11px; width: 8px; height: 1px; background: var(--paper); }
