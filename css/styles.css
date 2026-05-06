@@ -543,12 +543,12 @@ footer { padding: 36px 0 48px; border-top: 1px solid var(--line); margin-top: 80
 }
 .lightbox.open { opacity: 1; pointer-events: all; }
 .lightbox img {
-  max-width: 90vw; max-height: 85vh;
-  border-radius: 12px; object-fit: contain;
+  border-radius: 12px;
   transform-origin: center center;
   will-change: transform;
   user-select: none; -webkit-user-drag: none;
   transition: none;
+  image-rendering: high-quality;
 }
 .lightbox-close {
   position: fixed; top: 24px; right: 28px;

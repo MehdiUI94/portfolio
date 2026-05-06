@@ -166,23 +166,29 @@ export function initLightbox() {
   const lbImg = lb.querySelector('img');
   const lbClose = lb.querySelector('.lightbox-close');
 
-  let scale = 1, tx = 0, ty = 0;
+  let scale = 1, tx = 0, ty = 0, fitScale = 1;
   let dragging = false, dragStartX = 0, dragStartY = 0, dragTx = 0, dragTy = 0;
   let hasDragged = false;
   let lastPinchDist = null;
 
   function applyTransform() {
     lbImg.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
-    lbImg.style.cursor = scale > 1 ? (dragging ? 'grabbing' : 'grab') : 'zoom-in';
+    lbImg.style.cursor = scale > fitScale * 1.05 ? (dragging ? 'grabbing' : 'grab') : 'zoom-in';
+  }
+
+  function calcFitScale() {
+    const nw = lbImg.naturalWidth, nh = lbImg.naturalHeight;
+    if (!nw || !nh) return 1;
+    return Math.min(window.innerWidth * 0.90 / nw, window.innerHeight * 0.85 / nh);
   }
 
   function resetTransform() {
-    scale = 1; tx = 0; ty = 0;
+    fitScale = calcFitScale(); scale = fitScale; tx = 0; ty = 0;
     applyTransform();
   }
 
   function zoomBy(factor, cx, cy) {
-    const newScale = Math.max(0.25, Math.min(20, scale * factor));
+    const newScale = Math.max(fitScale * 0.5, Math.min(20, scale * factor));
     const r = newScale / scale;
     // zoom toward point (cx, cy) expressed as offset from viewport center
     tx = cx * (1 - r) + tx * r;
@@ -196,9 +202,14 @@ export function initLightbox() {
     img.addEventListener('click', () => {
       lbImg.src = img.src;
       lbImg.alt = img.alt;
-      resetTransform();
       lb.classList.add('open');
       document.body.style.overflow = 'hidden';
+      if (lbImg.complete && lbImg.naturalWidth) {
+        resetTransform();
+      } else {
+        fitScale = 1; scale = 1; tx = 0; ty = 0; applyTransform();
+        lbImg.onload = () => { resetTransform(); lbImg.onload = null; };
+      }
     });
   });
 
