@@ -330,7 +330,7 @@ async function handleAnalytics(request, env) {
 // ── Main handler ──────────────────────────────────────────────────────────────
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: CORS_HEADERS });
     }
@@ -422,15 +422,15 @@ export default {
       }
     }
 
-    // Log conversation to Supabase (fire-and-forget)
+    // Log conversation — ctx.waitUntil garantit que Cloudflare attend la fin avant de tuer le worker
     const userMsg = messages.filter(m => m.role === 'user').pop()?.content || '';
-    logConversation({
+    ctx.waitUntil(logConversation({
       session_id: session_id || 'unknown',
       lang: locale,
       user_message: userMsg,
       bot_reply: reply,
       booking_confirmed: bookingConfirmed,
-    }, env);
+    }, env));
 
     return new Response(JSON.stringify({ reply, bookingConfirmed, choices }), {
       headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
