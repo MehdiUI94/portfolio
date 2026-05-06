@@ -10,7 +10,7 @@
     "en": "4-agent SEO pipeline (Audit → Content → Design → Code) + 25-page Express.js site with Schema.org, WCAG AA compliance and built-in self-audit."
   },
   "tags": ["SEO/GEO", "Agents IA", "Full Stack"],
-  "year": "2025",
+  "year": "2026",
   "role": { "fr": "Architecte agents IA · Dev Full Stack", "en": "AI Agent Architect · Full Stack Dev" },
   "stack": ["Anthropic API", "Express.js", "Schema.org"],
   "cover": {

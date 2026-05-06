@@ -10,7 +10,7 @@
     "en": "Webapp matching brands with marketplaces (scoring on category, geography, etc.), contact scraping, email campaign launch via N8N webhook — Dust agent that drafts the mails — editable preview before sending."
   },
   "tags": ["Hackathon", "Full Stack", "N8N + Dust"],
-  "year": "2025",
+  "year": "2026",
   "role": { "fr": "Full Stack · IA · Automation", "en": "Full Stack · AI · Automation" },
   "stack": ["React", "N8N", "Dust", "Supabase"],
   "cover": {
@@ -33,8 +33,8 @@
     },
     {
       "type": "paragraph",
-      "fr": "Projet réalisé lors du hackathon Mirakl Connect 2025. L'objectif : construire un outil permettant à Mirakl d'identifier rapidement les marques mode et bijoux à contacter, puis de lancer une campagne d'emailing personnalisée grâce à l'IA.",
-      "en": "Built during the Mirakl Connect 2025 hackathon. The goal: create a tool allowing Mirakl to quickly identify fashion and jewellery brands to reach out to, then launch a personalised email campaign powered by AI."
+      "fr": "Projet réalisé lors du hackathon Mirakl Connect 2026. L'objectif : construire un outil permettant à Mirakl d'identifier rapidement les marques mode et bijoux à contacter, puis de lancer une campagne d'emailing personnalisée grâce à l'IA.",
+      "en": "Built during the Mirakl Connect 2026 hackathon. The goal: create a tool allowing Mirakl to quickly identify fashion and jewellery brands to reach out to, then launch a personalised email campaign powered by AI."
     },
     {
       "type": "heading",
