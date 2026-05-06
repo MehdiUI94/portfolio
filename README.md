@@ -1,7 +1,7 @@
 # Portfolio — Mehdi Zitouni
 
 Site statique hébergé sur **GitHub Pages** : [mehdiui94.github.io/portfolio](https://mehdiui94.github.io/portfolio)
-
+Lien analytics : https://mehdiui94.github.io/portfolio/analytics.html
 Stack : HTML5 · CSS3 · JS vanilla (ES modules) · JSON · GitHub Pages
 
 ---
