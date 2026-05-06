@@ -32,7 +32,43 @@ function cb(key) {
   return CB_I18N[key][lang] ?? CB_I18N[key].fr;
 }
 
+function injectChatbotHTML() {
+  if (document.getElementById('cb-toggle')) return;
+  const frag = document.createDocumentFragment();
+
+  const toggle = document.createElement('button');
+  toggle.id = 'cb-toggle';
+  toggle.setAttribute('aria-label', 'Ouvrir le chatbot');
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.innerHTML = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.67 1.19 5.07 3.09 6.73L4 22l4.5-1.5C9.58 21 10.76 21.29 12 21.29c5.52 0 10-4.02 10-9s-4.48-9-10-9zm0 16.29c-1.09 0-2.14-.22-3.09-.61l-.22-.09-2.33.77.79-2.27-.14-.22C5.63 14.74 4.71 12.94 4.71 11c0-4.02 3.27-7.29 7.29-7.29S19.29 6.98 19.29 11 16.02 18.29 12 18.29z"/></svg>';
+
+  const panel = document.createElement('div');
+  panel.id = 'cb-panel';
+  panel.setAttribute('role', 'dialog');
+  panel.setAttribute('aria-label', 'Chatbot assistant');
+  panel.setAttribute('aria-hidden', 'true');
+  panel.innerHTML = `
+    <div class="cb-header">
+      <div class="cb-header-title"><div class="cb-avatar">✦</div><span>Mehdi Zitouni</span></div>
+      <button id="cb-close" aria-label="Fermer">✕</button>
+    </div>
+    <div id="cb-messages" role="log" aria-live="polite"></div>
+    <div id="cb-chips"></div>
+    <div class="cb-input-row">
+      <input id="cb-input" type="text" placeholder="Posez votre question…" autocomplete="off" />
+      <button id="cb-send" aria-label="Envoyer">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>`;
+
+  frag.appendChild(toggle);
+  frag.appendChild(panel);
+  document.body.appendChild(frag);
+}
+
 function initChatbot() {
+  injectChatbotHTML();
+
   const toggle   = document.getElementById('cb-toggle');
   const panel    = document.getElementById('cb-panel');
   const closeBtn = document.getElementById('cb-close');

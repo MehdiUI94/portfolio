@@ -82,7 +82,12 @@ function renderDetail(proj) {
 
 <div id="lightbox" class="lightbox" role="dialog" aria-label="Image agrandie" aria-modal="true">
   <button class="lightbox-close" aria-label="Fermer">×</button>
-  <img src="" alt="">
+  <img src="" alt="" draggable="false">
+  <div class="lightbox-zoom-bar">
+    <button class="lightbox-zoom-btn" data-zoom="out" aria-label="Dézoomer">−</button>
+    <button class="lightbox-zoom-btn" data-zoom="reset" aria-label="Réinitialiser">↺</button>
+    <button class="lightbox-zoom-btn" data-zoom="in" aria-label="Zoomer">+</button>
+  </div>
 </div>`;
 }
 

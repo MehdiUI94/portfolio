@@ -166,19 +166,137 @@ export function initLightbox() {
   const lbImg = lb.querySelector('img');
   const lbClose = lb.querySelector('.lightbox-close');
 
+  let scale = 1, tx = 0, ty = 0;
+  let dragging = false, dragStartX = 0, dragStartY = 0, dragTx = 0, dragTy = 0;
+  let hasDragged = false;
+  let lastPinchDist = null;
+
+  function applyTransform() {
+    lbImg.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+    lbImg.style.cursor = scale > 1 ? (dragging ? 'grabbing' : 'grab') : 'zoom-in';
+  }
+
+  function resetTransform() {
+    scale = 1; tx = 0; ty = 0;
+    applyTransform();
+  }
+
+  function zoomBy(factor, cx, cy) {
+    const newScale = Math.max(0.25, Math.min(20, scale * factor));
+    const r = newScale / scale;
+    // zoom toward point (cx, cy) expressed as offset from viewport center
+    tx = cx * (1 - r) + tx * r;
+    ty = cy * (1 - r) + ty * r;
+    scale = newScale;
+    applyTransform();
+  }
+
+  // Open lightbox
   document.querySelectorAll('.block-gallery img, .block-img img, .block-comparison img').forEach(img => {
     img.addEventListener('click', () => {
       lbImg.src = img.src;
       lbImg.alt = img.alt;
+      resetTransform();
       lb.classList.add('open');
       document.body.style.overflow = 'hidden';
     });
   });
+
+  // Wheel zoom toward cursor
+  lb.addEventListener('wheel', e => {
+    e.preventDefault();
+    const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+    const cx = e.clientX - window.innerWidth / 2;
+    const cy = e.clientY - window.innerHeight / 2;
+    zoomBy(factor, cx, cy);
+  }, { passive: false });
+
+  // Mouse drag
+  lbImg.addEventListener('mousedown', e => {
+    dragging = true;
+    hasDragged = false;
+    dragStartX = e.clientX; dragStartY = e.clientY;
+    dragTx = tx; dragTy = ty;
+    applyTransform();
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const dx = e.clientX - dragStartX;
+    const dy = e.clientY - dragStartY;
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) hasDragged = true;
+    tx = dragTx + dx;
+    ty = dragTy + dy;
+    applyTransform();
+  });
+  window.addEventListener('mouseup', () => {
+    dragging = false;
+    applyTransform();
+  });
+
+  // Touch: pinch zoom + single-finger pan
+  lb.addEventListener('touchstart', e => {
+    if (e.touches.length === 2) {
+      lastPinchDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+    } else if (e.touches.length === 1) {
+      dragging = true;
+      hasDragged = false;
+      dragStartX = e.touches[0].clientX; dragStartY = e.touches[0].clientY;
+      dragTx = tx; dragTy = ty;
+    }
+  }, { passive: true });
+
+  lb.addEventListener('touchmove', e => {
+    e.preventDefault();
+    if (e.touches.length === 2) {
+      const d = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      if (lastPinchDist) {
+        const mx = (e.touches[0].clientX + e.touches[1].clientX) / 2 - window.innerWidth / 2;
+        const my = (e.touches[0].clientY + e.touches[1].clientY) / 2 - window.innerHeight / 2;
+        zoomBy(d / lastPinchDist, mx, my);
+      }
+      lastPinchDist = d;
+    } else if (e.touches.length === 1 && dragging) {
+      const dx = e.touches[0].clientX - dragStartX;
+      const dy = e.touches[0].clientY - dragStartY;
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) hasDragged = true;
+      tx = dragTx + dx;
+      ty = dragTy + dy;
+      applyTransform();
+    }
+  }, { passive: false });
+
+  lb.addEventListener('touchend', e => {
+    if (e.touches.length < 2) lastPinchDist = null;
+    if (e.touches.length === 0) { dragging = false; applyTransform(); }
+  }, { passive: true });
+
+  // Zoom buttons
+  lb.querySelectorAll('.lightbox-zoom-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const z = btn.dataset.zoom;
+      if (z === 'in') zoomBy(1.4, 0, 0);
+      else if (z === 'out') zoomBy(1 / 1.4, 0, 0);
+      else resetTransform();
+    });
+  });
+
+  // Close
   const close = () => {
     lb.classList.remove('open');
     document.body.style.overflow = '';
+    resetTransform();
   };
   if (lbClose) lbClose.addEventListener('click', close);
-  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  lb.addEventListener('click', e => {
+    if (e.target === lb && !hasDragged) close();
+  });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 }
