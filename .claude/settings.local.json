@@ -41,7 +41,9 @@
       "Bash(Get-ChildItem -Path \"C:\\\\Cours\\\\eugenia school\\\\portfolio\" -Recurse -File)",
       "Bash(Select-Object FullName)",
       "Bash(python3 -c ' *)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(git ls-tree *)",
+      "Bash(git fetch *)"
     ]
   }
 }
